@@ -1,0 +1,142 @@
+
+:root{--dark-bg:#0B1220;--light-bg:#F8FAFC;--dark-text:#0F172A;--light-text:#F8FAFC;--cta-bg:#2563EB;--yellow:#FFFF00}
+*{box-sizing:border-box}html,body{margin:0;padding:0;scroll-behavior:smooth}body{font-family:Roboto,system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif;color:var(--dark-text);background:var(--light-bg)}
+.header{position:sticky;top:0;z-index:50;background:var(--light-bg);border-bottom:1px solid #e5e7eb}.header .wrap{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:12px 20px}
+.header img.logo{height:60px;width:auto}a.cta{font-family:Montserrat,sans-serif;font-weight:700;background:var(--cta-bg);color:var(--light-text);padding:10px 18px;border-radius:10px;text-decoration:none;display:inline-block}
+.section{padding:72px 20px}.container{max-width:1100px;margin:0 auto}.dark{background:var(--dark-bg);color:var(--light-text)}.light{background:var(--light-bg);color:var(--dark-text)}
+.h1{font-family:Inter,sans-serif;font-weight:800;font-size:40px;margin:0 0 12px;text-align:center}.h2{font-family:Inter,sans-serif;font-weight:700;font-size:28px;margin:0 0 12px}.h3{font-family:Inter,sans-serif;font-weight:600;font-size:22px;margin:0 0 8px}
+.hero .hook{color:var(--yellow);text-shadow: 0 0 6px rgba(255,255,0,.35);font-family:Inter,sans-serif;font-weight:800;font-size:63px;text-align:center;margin-bottom:14px}
+.hero .sub{font-size:30px;max-width:900px;margin:0 auto 18px;text-align:center;opacity:.95}
+.hero .ring{border:2px solid var(--cta-bg);border-radius:18px;padding:24px;max-width:860px;margin:26px auto;position:relative;box-shadow:0 0 28px rgba(37,99,235,.45)}
+.hero .ring .why{font-size:33px;text-align:center;line-height:1.35}.hero .ring .why .last{color:var(--yellow);font-size:46px;font-weight:800;text-shadow: 0 0 4px rgba(255,255,0,.25);display:block;margin-top:8px}
+.hero .ring .attached-btn{position:absolute;left:50%;transform:translate(-50%,50%);bottom:0}
+.hero .below{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;margin-top:54px}
+.hero .below .card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px}
+.hero .trainer{text-align:center;position:relative;--photo-size:330px;padding-bottom:calc(var(--photo-size)*.45)}
+.hero .trainer .photo-wrap{width:var(--photo-size);height:var(--photo-size);margin:0 auto 12px;border-radius:50%;padding:6px;border:3px solid var(--cta-bg);box-shadow:0 0 20px rgba(37,99,235,.45);background:radial-gradient(circle at 50% 50%, rgba(37,99,235,.25), rgba(37,99,235,0) 70%)}
+.hero .trainer img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:0}
+.hero .desc{font-size:14px;opacity:.9;text-align:center;max-width:520px;margin:10px auto 0}
+.hero .desc .founder{font-weight:700;font-size:21px}.hero .desc .bio{font-size:21px}
+.hero .desc-box{position:absolute;left:50%;transform:translateX(-50%);top:calc(var(--photo-size)*.70);width:min(520px,95%);background:var(--dark-bg);color:var(--light-text);border:2px solid var(--cta-bg);border-radius:16px;padding:14px;box-shadow:0 0 18px rgba(37,99,235,.35)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{border-radius:16px;padding:18px;border:1px solid #e5e7eb;background:#fff}.dark .card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.card .title{font-family:Inter;font-weight:700;margin-bottom:8px;font-size:18px}.card p{margin:0;line-height:1.5;font-size:15px}
+.list{line-height:1.8;font-size:16px}.list .bad{color:#ef4444}.list .good{color:#16a34a}
+.faq{max-width:900px;margin:0 auto}.faq details{background:#fff;padding:14px 18px;margin:10px 0;border-radius:12px;border:1px solid #e5e7eb}.dark .faq details{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.faq summary{font-weight:700;cursor:pointer}
+.footer{text-align:center;padding:28px 18px}.footer img{height:67px}
+.bottom-floating{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(11,18,32,.95);color:#fff;border-top:1px solid rgba(255,255,255,.12)}
+.bottom-floating .wrap{max-width:1100px;margin:0 auto;display:flex;gap:16px;align-items:center;justify-content:space-between;padding:10px 16px}
+.bottom-floating .msg{font-weight:600}
+a.cta.big{padding:14px 22px;border-radius:12px;font-size:16px}
+.section .center{text-align:center}
+
+/* v2 Trainer layout */
+.trainer-section-v2{position:relative}.trainer-float-v2{float:left;margin:0 18px 12px 0;--trainer-photo-size:180px}
+.trainer-float-v2 .photo-wrap-v2{width:var(--trainer-photo-size);height:var(--trainer-photo-size);border-radius:50%;padding:6px;border:3px solid var(--cta-bg);box-shadow:0 0 20px rgba(37,99,235,.45);background:radial-gradient(circle at 50% 50%, rgba(37,99,235,.25), rgba(37,99,235,0) 70%)}
+.trainer-float-v2 .photo-wrap-v2 img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:0}
+.clear-v2{clear:both}.trainer-section-v2 p{line-height:1.8;margin:0 0 12px}.trainer-section-v2 .cta-wrap-v2{text-align:center;margin-top:18px}
+
+/* Mobile (<=768px) */
+@media (max-width:768px){
+  .hero .below{grid-template-columns:1fr;gap:16px}
+  .hero .below .card{order:1}
+  .hero .below .trainer{order:2}
+  .hero .trainer .photo-wrap{margin:0 auto 12px}
+  .hero .desc-box{left:50%;transform:translateX(-50%);width:92%}
+  .grid-3{grid-template-columns:1fr;gap:12px}
+  .trainer-float-v2{float:none;margin:0 auto 12px;display:block}
+}
+
+
+/* ===== v15 alignment tweaks ===== */
+.hero .below .card { text-align: center; }
+.hero .below .card .session-lines { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+
+/* Center-align content inside "What you will learn" cards */
+.section.light .grid-3 .card { text-align: center; }
+
+/* Mobile: trainer photo already floats none; ensure wrapper centers */
+@media (max-width: 768px) {
+  .trainer-float-v2 { float: none; margin: 0 auto 12px; display: block; }
+}
+
+
+/* v27: Ensure 'Meet Your Trainer' photo centers on mobile */
+@media (max-width: 768px) {
+  .trainer-section-v2 { text-align: center; }
+  .trainer-float-v2 { float: none; margin: 0 auto 12px; display: block; width: 100%; }
+  .trainer-float-v2 .photo-wrap-v2 { margin: 0 auto; }
+}
+
+
+/* v30: larger inline doc headings */
+.doc-heading-lg {
+  font-size: 22px;
+  line-height: 1.35;
+  display: inline-block;
+  font-weight: 700;
+}
+
+
+/* v32: CTA electric-blue glow pulse */
+@keyframes ctaGlowPulse {
+  0%   { box-shadow: 0 0 0 rgba(37,99,235,0); }
+  55%  { box-shadow: 0 0 36px rgba(37,99,235,1), 0 0 72px rgba(37,99,235,.75); }
+  100% { box-shadow: 0 0 0 rgba(37,99,235,0); }
+}
+  55%  { box-shadow: 0 0 28px rgba(37,99,235,.9), 0 0 56px rgba(37,99,235,.6); }
+  100% { box-shadow: 0 0 0 rgba(37,99,235,0); }
+}
+  50%  { box-shadow: 0 0 18px rgba(37,99,235,.6), 0 0 32px rgba(37,99,235,.35); }
+  100% { box-shadow: 0 0 0 rgba(37,99,235,0); }
+}
+a.cta.glow { animation: ctaGlowPulse 1.8s ease-in-out infinite !important; will-change: box-shadow; }
+/* Slightly stronger on hover/focus */
+a.cta.glow:hover, a.cta.glow:focus { box-shadow: 0 0 40px rgba(37,99,235,1), 0 0 80px rgba(37,99,235,.8); }
+
+
+/* v33: Smooth FAQ transitions */
+.faq-content { overflow: hidden; max-height: 0; transition: max-height 360ms ease; }
+
+
+/* v35: Force continuous CTA glow on index only */
+.home a.cta {
+  animation: ctaGlowPulse 1.8s ease-in-out infinite !important;
+  will-change: box-shadow;
+}
+.home a.cta:hover, .home a.cta:focus {
+  box-shadow: 0 0 40px rgba(37,99,235,1), 0 0 80px rgba(37,99,235,.8);
+}
+
+
+/* v37: WhatsApp CTA (green) */
+a.cta.whats { background:#16a34a; color:#F8FAFC; }
+a.cta.whats:hover, a.cta.whats:focus { filter: brightness(1.05); }
+
+
+/* v45: Light theme for home bottom-floating bar */
+.home .bottom-floating {
+  background: #F8FAFC; /* Soft Mist */
+  color: #0F172A;      /* Deep Navy for text */
+  box-shadow: 0 -8px 30px rgba(2,6,23,0.08);
+}
+.home .bottom-floating .msg { color: #0F172A; }
+.home .bottom-floating .cta {
+  background: #2563EB; /* Electric Blue CTA */
+  color: #F8FAFC;
+}
+.home .bottom-floating .cta:hover,
+.home .bottom-floating .cta:focus { filter: brightness(1.05); }
+
+
+/* v51: Re-apply theme and section fixes */
+/* What you will learn cards background */
+.grid-3 .card { background: #E3EFFC; }
+
+/* FAQ items background box */
+.faq details { background: #E3EFFC; border-radius: 12px; padding: 12px 14px; }
+
+/* Ensure 'Who is this webinar for' bullets use dark navy text, not green */
+.who-for .good,
+.who-for .items,
+.who-for .items * { color: #0F172A !important; }
