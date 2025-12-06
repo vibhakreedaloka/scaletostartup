@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Founders’ Tech Clarity Call – Pre-Call Form | Scale Startup</title>
+
+  <!-- Fonts & global styles (same system as 1on1-call.html) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Montserrat:wght@500;700;800&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link href="styles.css" rel="stylesheet" />
+  <link href="assets/favicon-32x32.png" rel="icon" />
+
+  <style>
+    body.form-page {
+      margin: 0;
+      background: var(--light-bg);
+      color: var(--dark-text);
+      font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* Use slightly tighter padding for this form page */
+    .form-page .section {
+      padding: 48px 20px;
+    }
+
+    .form-page .section.dark:first-of-type {
+      padding-top: 36px;
+    }
+
+    .header {
+      background: #F8FAFC;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .header .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .header img.logo {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+
+    /* Generic form layout */
+    .precall-form .form-block {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .precall-form .form-title {
+      font-family: Inter, system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 1.2;
+      margin: 0 0 8px;
+      text-align: left;
+    }
+
+    .precall-form .form-subtitle {
+      font-family: Roboto, system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0 0 24px;
+      color: #e5e7eb;
+    }
+
+    .section.light .precall-form .form-subtitle {
+      color: #475569;
+    }
+
+    .precall-form .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .precall-form .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .precall-form label.field-label {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .precall-form input[type="text"],
+    .precall-form input[type="email"],
+    .precall-form textarea {
+      width: 100%;
+      max-width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      font-family: Roboto, system-ui, sans-serif;
+      font-size: 14px;
+      box-sizing: border-box;
+      background: rgba(248, 250, 252, 0.95);
+    }
+
+    .section.dark .precall-form input[type="text"],
+    .section.dark .precall-form input[type="email"],
+    .section.dark .precall-form textarea {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: rgba(148, 163, 184, 0.8);
+      color: var(--light-text);
+    }
+
+    .precall-form textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .precall-form .question-title {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 12px;
+    }
+
+    .precall-form .helper-text {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-bottom: 12px;
+    }
+
+    .section.dark .precall-form .helper-text {
+      color: #cbd5f5;
+    }
+
+    /* Option lists (radio/checkbox) */
+    .precall-form .option-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .precall-form .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 14px;
+      line-height: 1.5;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+
+    .section.light .precall-form .option {
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    .section.dark .precall-form .option {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: rgba(148, 163, 184, 0.55);
+    }
+
+    .precall-form .option input {
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .precall-form .option span {
+      display: block;
+    }
+
+    /* Submit button */
+    .precall-form .actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .precall-form .primary-btn {
+      font-family: Montserrat, system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 12px 28px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      background: var(--cta-bg); /* Electric Blue #2563EB */
+      color: var(--light-text);
+      box-shadow: 0 0 16px rgba(37, 99, 235, 0.5);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+    }
+
+    .precall-form .primary-btn:hover,
+    .precall-form .primary-btn:focus {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+      box-shadow: 0 0 26px rgba(37, 99, 235, 0.9);
+      outline: none;
+    }
+
+    .precall-form .required-note {
+      font-size: 12px;
+      color: #cbd5f5;
+    }
+
+    .section.light .precall-form .required-note {
+      color: #64748b;
+    }
+
+    /* Footer */
+    .form-page .footer-slim {
+      padding: 8px 16px 6px;
+    }
+
+    .form-page .footer-meta {
+      text-align: center;
+      font-size: 10px;
+      color: #64748b;
+      margin: 0;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 768px) {
+      .precall-form .field-row {
+        grid-template-columns: 1fr;
+      }
+
+      .precall-form .form-title {
+        font-size: 26px;
+      }
+
+      .header img.logo {
+        height: 46px;
+      }
+    }
+  
+    /* Custom validation error message (red background instead of default tooltip) */
+    .field-error {
+      margin-top: 6px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: #DC2626; /* red */
+      color: #ffffff;
+      font-size: 12px;
+      line-height: 1.4;
+      display: inline-block;
+    }
+
+    .section.dark .field-error {
+      background: #B91C1C;
+    }
+</style>
+</head>
+<body class="home form-page">
+  <!-- Top logo bar (same logo as 1on1-call.html, left aligned) -->
+  <div class="header">
+    <div class="wrap">
+      <a href="index.html">
+        <img
+          alt="Scale Startup"
+          class="logo"
+          src="assets/S Horizontal Logo with BG Shrinked.png"
+        />
+      </a>
+    </div>
+  </div>
+
+  <form
+    class="precall-form"
+    action="https://script.google.com/macros/s/AKfycbybc-52vYz9GFR7EUtH3KByNYTOZ55YlzTNjuM7J-UBYzc3353QpVe1i31EY4XgRV5X/exec"
+    method="post"
+  >
+    <!-- Dark section: Title + Name + Email -->
+    <section class="section dark">
+      <div class="container">
+        <div class="form-block">
+          <h1 class="form-title">Founders’ Tech Clarity Call – Pre-Call Form</h1>
+          <p class="form-subtitle">
+            Please fill this so the 30-minute call is fully customised for you.
+          </p>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="name" class="field-label">Your Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="field">
+              <label for="email" class="field-label">Your Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Light section: Q1 - Who are you -->
+    <section class="section light">
+      <div class="container">
+        <div class="form-block">
+          <!-- Q1: Role (filter) -->
+          <h2 class="question-title">Who are you in your company?</h2>
+
+          <ul class="option-list">
+            <li>
+              <label class="option">
+                <input
+                  type="radio"
+                  name="role"
+                  value="founder"
+                  required
+                />
+                <span>Founder / Co-founder of a tech or tech-enabled business</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input type="radio" name="role" value="cto" />
+                <span>CTO / Head of Engineering / Head of Technology</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input type="radio" name="role" value="techlead" />
+                <span>Tech Lead / Senior Developer responsible for major tech decisions</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input type="radio" name="role" value="nontechfounder" />
+                <span>Non-tech Founder handling tech vendors / agencies</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input type="radio" name="role" value="serviceprovider" />
+                <span>Service provider / agency owner building software for clients</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input type="radio" name="role" value="none" />
+                <span>None of the above – I’m just exploring / learning</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dark section: Q2 - Stage (now radio instead of dropdown) -->
+    <section class="section dark">
+      <div class="container">
+        <div class="form-block">
+          <!-- Q2: Stage -->
+          <h2 class="question-title">Which of these best describes your current situation?</h2>
+
+          <ul class="option-list">
+            <li>
+              <label class="option">
+                <input
+                  type="radio"
+                  name="stage"
+                  value="mvp"
+                  required
+                />
+                <span>Idea / prototype / MVP stage</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="radio"
+                  name="stage"
+                  value="launched_stability"
+                />
+                <span>Launched, figuring out stability and scale</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="radio"
+                  name="stage"
+                  value="paying_slow_tech"
+                />
+                <span>Paying customers, tech issues slowing growth</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="radio"
+                  name="stage"
+                  value="growing_messy_inside"
+                />
+                <span>Growing well, systems messy / fragile inside</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="radio"
+                  name="stage"
+                  value="stable_review"
+                />
+                <span>Stable, want expert review of tech setup</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Light section: Q3 - Challenges (checkbox) -->
+    <section class="section light">
+      <div class="container">
+        <div class="form-block">
+          <!-- Q3: Challenges (multiple) -->
+          <h2 class="question-title">
+            What are the top tech challenges you’re facing right now? (Select all that apply)
+          </h2>
+
+          <ul class="option-list">
+            <li>
+              <label class="option">
+                <input
+                  type="checkbox"
+                  name="challenges"
+                  value="bugs"
+                />
+                <span>Frequent bugs in production</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="checkbox"
+                  name="challenges"
+                  value="slow_releases"
+                />
+                <span>Slow development / release speed</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="checkbox"
+                  name="challenges"
+                  value="server_issues"
+                />
+                <span>Server issues – downtime / slowness</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="checkbox"
+                  name="challenges"
+                  value="messy_code"
+                />
+                <span>Messy codebase – hard to change</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="checkbox"
+                  name="challenges"
+                  value="dependency_one_dev"
+                />
+                <span>Over-dependence on one dev / agency</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="checkbox"
+                  name="challenges"
+                  value="no_monitoring"
+                />
+                <span>No proper monitoring / dashboards</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="checkbox"
+                  name="challenges"
+                  value="high_costs"
+                />
+                <span>High tech / cloud costs</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="checkbox"
+                  name="challenges"
+                  value="busy_but_stuck"
+                />
+                <span>Tech team busy, business still stuck</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="checkbox"
+                  name="challenges"
+                  value="no_docs"
+                />
+                <span>No clear documentation / specs</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="checkbox"
+                  name="challenges"
+                  value="other"
+                />
+                <span>Other</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dark section: Q4 - Where do you want the most help -->
+    <section class="section dark">
+      <div class="container">
+        <div class="form-block">
+          <!-- Q4: Where do you want the most help? (multiple) -->
+          <h2 class="question-title">
+            Where do you want the most help in this call? (Select all that apply)
+          </h2>
+
+          <ul class="option-list">
+            <li>
+              <label class="option">
+                <input
+                  type="checkbox"
+                  name="helpAreas"
+                  value="root_cause"
+                />
+                <span>Finding the real root cause of our main tech problem</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="checkbox"
+                  name="helpAreas"
+                  value="action_plan"
+                />
+                <span>A clear, step-by-step action plan for the next 30–90 days</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="checkbox"
+                  name="helpAreas"
+                  value="fix_refactor_rebuild"
+                />
+                <span>Whether to fix, refactor, or rebuild parts of the system</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="checkbox"
+                  name="helpAreas"
+                  value="team_process"
+                />
+                <span>Structuring our team / vendors / processes better</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="checkbox"
+                  name="helpAreas"
+                  value="scale_without_burnout"
+                />
+                <span>Understanding how to scale without burning out</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="checkbox"
+                  name="helpAreas"
+                  value="reduce_risk"
+                />
+                <span>Reducing risk, downtime, and last-minute panic</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="checkbox"
+                  name="helpAreas"
+                  value="reduce_waste"
+                />
+                <span>Reducing waste / extra spend on tech and tools</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="checkbox"
+                  name="helpAreas"
+                  value="honest_review"
+                />
+                <span>I just need an honest expert review of our current setup</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Light section: Q5 - Urgency -->
+    <section class="section light">
+      <div class="container">
+        <div class="form-block">
+          <!-- Q5: Urgency (single) -->
+          <h2 class="question-title">How urgent is it for you to fix these tech issues?</h2>
+
+          <ul class="option-list">
+            <li>
+              <label class="option">
+                <input
+                  type="radio"
+                  name="urgency"
+                  value="very_urgent"
+                  required
+                />
+                <span>Very urgent – it’s already affecting customers / revenue</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="radio"
+                  name="urgency"
+                  value="important"
+                />
+                <span>Important, but not yet breaking anything major</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="radio"
+                  name="urgency"
+                  value="good_to_have"
+                />
+                <span>Good to have – we want to be proactive before things break</span>
+              </label>
+            </li>
+            <li>
+              <label class="option">
+                <input
+                  type="radio"
+                  name="urgency"
+                  value="exploring"
+                />
+                <span>I’m just exploring, not sure how urgent it is</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dark section: Q6 - Why now + Submit -->
+    <section class="section dark">
+      <div class="container">
+        <div class="form-block">
+          <!-- Q6: Why now -->
+          <h2 class="question-title">
+            Why do you feel you must take this Founders’ Tech Clarity Call right now?
+          </h2>
+          <p class="helper-text">
+            What will change for you or your startup if you get the right plan in the next 30 days?
+          </p>
+
+          <div class="field">
+            <textarea name="whyNow" required></textarea>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="primary-btn">
+              Submit and Select the Time-slot
+            </button>
+            <span class="required-note">
+              * Please answer honestly – this helps us use your 30 minutes wisely.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </form>
+
+  <!-- Light footer -->
+  <footer class="section light footer-slim">
+    <div class="container">
+      <p class="footer-meta">
+        Copyright © 2025 KreedaLoka Private Limited | All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var form = document.querySelector('form.precall-form');
+      if (!form) return;
+
+      // Disable native browser validation bubbles so we can show our own
+      form.setAttribute('novalidate', 'novalidate');
+
+      function getContainer(el) {
+        if (!el) return null;
+        return el.closest('.field') || el.closest('.option-list') || el.parentElement || el;
+      }
+
+      function showError(el, message) {
+        var container = getContainer(el);
+        if (!container) return;
+        var existing = container.querySelector('.field-error');
+        if (existing) {
+          existing.textContent = message;
+          return;
+        }
+        var div = document.createElement('div');
+        div.className = 'field-error';
+        div.textContent = message;
+        container.appendChild(div);
+      }
+
+      function clearError(el) {
+        var container = getContainer(el);
+        if (!container) return;
+        var err = container.querySelector('.field-error');
+        if (err) {
+          err.parentNode.removeChild(err);
+        }
+      }
+
+      form.addEventListener('submit', function (e) {
+        // Clear previous errors
+        Array.prototype.slice.call(form.querySelectorAll('.field-error')).forEach(function (node) {
+          if (node && node.parentNode) {
+            node.parentNode.removeChild(node);
+          }
+        });
+
+        var elements = Array.prototype.slice.call(form.elements || []);
+        var firstInvalid = null;
+        var processedGroups = {};
+
+        elements.forEach(function (el) {
+          if (!el || !el.willValidate || !el.name) return;
+          if (el.disabled || el.type === 'hidden') return;
+
+          var type = (el.type || '').toLowerCase();
+
+          // Handle radio / checkbox groups as a single field
+          if (type === 'radio' || type === 'checkbox') {
+            if (processedGroups[el.name]) return;
+            processedGroups[el.name] = true;
+
+            var group = form.querySelectorAll('[name="' + el.name + '"]');
+            var isRequired = false;
+            var isChecked = false;
+
+            Array.prototype.slice.call(group).forEach(function (g) {
+              if (g.required) isRequired = true;
+              if (g.checked) isChecked = true;
+            });
+
+            if (type === 'checkbox' && (el.name === 'challenges' || el.name === 'helpAreas')) {
+              isRequired = true;
+            }
+
+            if (isRequired && !isChecked) {
+              e.preventDefault();
+              if (!firstInvalid) firstInvalid = el;
+              var msg;
+              if (type === 'radio') {
+                msg = 'Please answer this question.';
+              } else {
+                msg = 'Please select at least one option.';
+              }
+              showError(el, msg);
+            }
+          } else {
+            if (!el.checkValidity()) {
+              e.preventDefault();
+              if (!firstInvalid) firstInvalid = el;
+              var msg = el.validationMessage || 'Fill out this field';
+              showError(el, msg);
+            }
+          }
+        });
+
+        if (firstInvalid) {
+          firstInvalid.focus();
+        }
+      });
+
+      // Clear error once the field becomes valid
+      form.addEventListener('input', function (e) {
+        var el = e.target;
+        if (!el || !el.willValidate) return;
+
+        var type = (el.type || '').toLowerCase();
+        if (type === 'radio' || type === 'checkbox') {
+          // On change in a group, clear group error if now valid
+          var group = form.querySelectorAll('[name="' + el.name + '"]');
+          var isChecked = Array.prototype.some.call(group, function (g) { return g.checked; });
+          if (isChecked) {
+            clearError(el);
+          }
+        } else {
+          if (el.checkValidity()) {
+            clearError(el);
+          }
+        }
+      }, true);
+    });
+  </script>
+
+</body>
+</html>

@@ -140,3 +140,20 @@ a.cta.whats:hover, a.cta.whats:focus { filter: brightness(1.05); }
 .who-for .good,
 .who-for .items,
 .who-for .items * { color: #0F172A !important; }
+
+
+
+
+
+/* Mobile: keep header and bottom CTAs same size */
+@media (max-width:768px){
+  .home .header .cta,
+  .home .bottom-floating .cta {
+    font-size:14px;
+    padding:10px 14px;
+  }
+  .home .bottom-floating .cta {
+    flex-shrink:0;
+    white-space:nowrap;
+  }
+}
