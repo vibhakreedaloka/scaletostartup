@@ -279,9 +279,11 @@
   </div>
 
   <form
+    id="founders-tech-clarity-form"
     class="precall-form"
     action="https://script.google.com/macros/s/AKfycbybc-52vYz9GFR7EUtH3KByNYTOZ55YlzTNjuM7J-UBYzc3353QpVe1i31EY4XgRV5X/exec"
     method="post"
+    target="hidden_gas_iframe"
   >
     <!-- Dark section: Title + Name + Email -->
     <section class="section dark">
@@ -716,6 +718,8 @@
       </div>
     </section>
   </form>
+  <iframe name="hidden_gas_iframe" style="display:none;"></iframe>
+
 
   <!-- Light footer -->
   <footer class="section light footer-slim">
@@ -763,6 +767,9 @@
       }
 
       form.addEventListener('submit', function (e) {
+        // Handle submission via JavaScript: validate, send data to Apps Script, then redirect.
+        e.preventDefault();
+
         // Clear previous errors
         Array.prototype.slice.call(form.querySelectorAll('.field-error')).forEach(function (node) {
           if (node && node.parentNode) {
@@ -799,19 +806,17 @@
             }
 
             if (isRequired && !isChecked) {
-              e.preventDefault();
               if (!firstInvalid) firstInvalid = el;
               var msg;
               if (type === 'radio') {
-                msg = 'Please answer this question.';
+                msg = 'Please select one option';
               } else {
-                msg = 'Please select at least one option.';
+                msg = 'Please select at least one option';
               }
               showError(el, msg);
             }
           } else {
             if (!el.checkValidity()) {
-              e.preventDefault();
               if (!firstInvalid) firstInvalid = el;
               var msg = el.validationMessage || 'Fill out this field';
               showError(el, msg);
@@ -821,10 +826,61 @@
 
         if (firstInvalid) {
           firstInvalid.focus();
+          return;
+        }
+
+        // Build a JSON payload from the form
+        var formData = new FormData(form);
+        var payload = {};
+        formData.forEach(function (value, key) {
+          if (payload[key] !== undefined) {
+            if (!Array.isArray(payload[key])) {
+              payload[key] = [payload[key]];
+            }
+            payload[key].push(value);
+          } else {
+            payload[key] = value;
+          }
+        });
+
+        var url = form.getAttribute('action') || 'https://script.google.com/macros/s/AKfycbybc-52vYz9GFR7EUtH3KByNYTOZ55YlzTNjuM7J-UBYzc3353QpVe1i31EY4XgRV5X/exec';
+
+        try {
+          if (navigator.sendBeacon) {
+            var blob = new Blob([JSON.stringify(payload)], { type: 'text/plain;charset=UTF-8' });
+            navigator.sendBeacon(url, blob);
+          } else {
+            // Fallback: fire-and-forget fetch (we won't wait for the promise)
+            fetch(url, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'text/plain;charset=UTF-8'
+              },
+              body: JSON.stringify(payload),
+              keepalive: true
+            });
+          }
+        } catch (err) {
+          // Even if logging fails silently, we still continue with redirect
+          console && console.error && console.error('Logging error', err);
+        }
+
+        // Decide where to send the user (do not wait for Apps Script response)
+        var roleValue = '';
+        var roleNodes = form.querySelectorAll('input[name="role"]');
+        Array.prototype.slice.call(roleNodes).forEach(function (node) {
+          if (node.checked) {
+            roleValue = node.value || '';
+          }
+        });
+
+        if (roleValue === 'none') {
+          window.location.href = 'wrong-audience.html';
+        } else {
+          window.location.href = 'https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7';
         }
       });
-
-      // Clear error once the field becomes valid
+// Clear error once the field becomes valid
       form.addEventListener('input', function (e) {
         var el = e.target;
         if (!el || !el.willValidate) return;

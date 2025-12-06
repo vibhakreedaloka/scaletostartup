@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scale Startup | Access Restricted</title>
+  <link href="assets/favicon-32x32.png" rel="icon" />
+  <style>
+    :root {
+      --light-bg: #F8FAFC;
+      --dark-bg: #0B1220;
+      --border-subtle: rgba(148, 163, 184, 0.5);
+      --text-main: #F9FAFB;
+      --text-subtle: #E5E7EB;
+      --accent-blue: #2563EB;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+      background: var(--dark-bg);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .top-bar {
+      background: var(--light-bg);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .top-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 8px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .logo {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 32px 0;
+    }
+
+    .card {
+      width: 100%;
+      text-align: center;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0 16px;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .card p {
+      margin: 4px 0;
+      font-size: 21px;
+      line-height: 1.6;
+      color: var(--text-subtle);
+    }
+
+    .card p.highlight {
+      margin-top: 12px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 19.5px;
+      color: #cbd5f5;
+    }
+
+    .brand {
+      color: inherit;
+      font-weight: inherit;
+    }
+
+    @media (max-width: 480px) {
+      .content {
+        padding: 24px 0;
+      }
+
+      .card {
+        padding: 0 12px;
+      }
+
+      .card h3 {
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="top-bar">
+      <div class="top-wrap">
+        <a href="1on1-call.html">
+          <img
+            class="logo"
+            src="assets/S Horizontal Logo with BG Shrinked.png"
+            alt="Scale Startup"
+          />
+        </a>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="card">
+        <h3>Thank you for your interest 🙏</h3>
+        <p>This 1-on-1 is reserved for founders and tech decision-makers.</p>
+        <p>Once you step into that role, you’ll get maximum value from this call.</p>
+        <p class="highlight">
+          With <span class="brand">Scale Startup</span>, we go deep into your tech only when
+          you have the authority to implement what we plan together.
+        </p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
