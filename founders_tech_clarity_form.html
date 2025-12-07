@@ -279,11 +279,9 @@
   </div>
 
   <form
-    id="founders-tech-clarity-form"
     class="precall-form"
     action="https://script.google.com/macros/s/AKfycbybc-52vYz9GFR7EUtH3KByNYTOZ55YlzTNjuM7J-UBYzc3353QpVe1i31EY4XgRV5X/exec"
     method="post"
-    target="hidden_gas_iframe"
   >
     <!-- Dark section: Title + Name + Email -->
     <section class="section dark">
@@ -527,14 +525,17 @@
               </label>
             </li>
             <li>
-              <label class="option">
-                <input
-                  type="checkbox"
-                  name="challenges"
-                  value="other"
-                />
-                <span>Other</span>
-              </label>
+              <div class="field" style="margin-top:8px;">
+                <label class="field-label" for="challenges-other-text">
+                  If you have any other Tech Challenges other than the above list, please describe it here
+                </label>
+                <textarea
+                  id="challenges-other-text"
+                  name="challengesOther"
+                  rows="2"
+                  placeholder="Type your other tech challenges here"
+                ></textarea>
+              </div>
             </li>
           </ul>
         </div>
@@ -631,6 +632,19 @@
                 <span>I just need an honest expert review of our current setup</span>
               </label>
             </li>
+            <li>
+              <div class="field" style="margin-top:8px;">
+                <label class="field-label" for="help-areas-other-text">
+                  If you want help in any other areas, please type it here
+                </label>
+                <textarea
+                  id="help-areas-other-text"
+                  name="helpAreasOther"
+                  rows="2"
+                  placeholder="Type any other areas where you want help"
+                ></textarea>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -718,8 +732,6 @@
       </div>
     </section>
   </form>
-  <iframe name="hidden_gas_iframe" style="display:none;"></iframe>
-
 
   <!-- Light footer -->
   <footer class="section light footer-slim">
@@ -801,19 +813,19 @@
               if (g.checked) isChecked = true;
             });
 
-            if (type === 'checkbox' && (el.name === 'challenges' || el.name === 'helpAreas')) {
-              isRequired = true;
-            }
-
-            if (isRequired && !isChecked) {
-              if (!firstInvalid) firstInvalid = el;
-              var msg;
-              if (type === 'radio') {
-                msg = 'Please select one option';
-              } else {
-                msg = 'Please select at least one option';
+            // For normal checkbox / radio groups, if any field in the group
+            // is marked required, then at least one option must be checked.
+            if (el.name !== 'challenges' && el.name !== 'helpAreas') {
+              if (isRequired && !isChecked) {
+                if (!firstInvalid) firstInvalid = el;
+                var msg;
+                if (type === 'radio') {
+                  msg = 'Please select one option';
+                } else {
+                  msg = 'Please select at least one option';
+                }
+                showError(el, msg);
               }
-              showError(el, msg);
             }
           } else {
             if (!el.checkValidity()) {
@@ -824,12 +836,43 @@
           }
         });
 
+        
+                // Combined validation for challenges: at least one checkbox OR text
+        var challengeGroup = form.querySelectorAll('input[name="challenges"]');
+        var anyChallengeChecked = false;
+        Array.prototype.slice.call(challengeGroup).forEach(function (g) {
+          if (g.checked) anyChallengeChecked = true;
+        });
+        var challengesOtherText = form.querySelector('textarea[name="challengesOther"]');
+        var challengesOtherFilled = challengesOtherText && challengesOtherText.value && challengesOtherText.value.trim() !== '';
+
+        if (!anyChallengeChecked && !challengesOtherFilled) {
+          var anchor = challengesOtherText || challengeGroup[0];
+          if (!firstInvalid) firstInvalid = anchor;
+          showError(anchor, 'Please select at least one option or type your other Tech Challenges');
+        }
+
+        // Combined validation for helpAreas: at least one checkbox OR text
+        var helpGroup = form.querySelectorAll('input[name="helpAreas"]');
+        var anyHelpChecked = false;
+        Array.prototype.slice.call(helpGroup).forEach(function (g) {
+          if (g.checked) anyHelpChecked = true;
+        });
+        var helpOtherText = form.querySelector('textarea[name="helpAreasOther"]');
+        var helpOtherFilled = helpOtherText && helpOtherText.value && helpOtherText.value.trim() !== '';
+
+        if (!anyHelpChecked && !helpOtherFilled) {
+          var anchor2 = helpOtherText || helpGroup[0];
+          if (!firstInvalid) firstInvalid = anchor2;
+          showError(anchor2, 'Please select at least one option or type the other areas where you want help');
+        }
+
         if (firstInvalid) {
           firstInvalid.focus();
           return;
         }
 
-        // Build a JSON payload from the form
+// Build a JSON payload from the form
         var formData = new FormData(form);
         var payload = {};
         formData.forEach(function (value, key) {
@@ -843,7 +886,35 @@
           }
         });
 
-        var url = form.getAttribute('action') || 'https://script.google.com/macros/s/AKfycbybc-52vYz9GFR7EUtH3KByNYTOZ55YlzTNjuM7J-UBYzc3353QpVe1i31EY4XgRV5X/exec';
+
+        // 
+        // Merge free-text "other" fields into the main checkbox groups
+        // so Apps Script receives a single combined value per field.
+        function mergeOtherIntoField(fieldKey, otherKey) {
+          if (!payload) return;
+
+          var otherText = payload[otherKey];
+          if (!otherText || typeof otherText !== 'string') return;
+
+          var trimmed = otherText.trim();
+          if (!trimmed) return;
+
+          var existing = payload[fieldKey];
+
+          if (existing === undefined) {
+            payload[fieldKey] = trimmed;
+          } else if (Array.isArray(existing)) {
+            existing.push(trimmed);
+            payload[fieldKey] = existing;
+          } else {
+            payload[fieldKey] = [existing, trimmed];
+          }
+        }
+
+        mergeOtherIntoField('challenges', 'challengesOther');
+        mergeOtherIntoField('helpAreas', 'helpAreasOther');
+
+var url = form.getAttribute('action') || 'https://script.google.com/macros/s/AKfycbybc-52vYz9GFR7EUtH3KByNYTOZ55YlzTNjuM7J-UBYzc3353QpVe1i31EY4XgRV5X/exec';
 
         try {
           if (navigator.sendBeacon) {
@@ -862,7 +933,9 @@
           }
         } catch (err) {
           // Even if logging fails silently, we still continue with redirect
-          console && console.error && console.error('Logging error', err);
+          if (console && console.error) {
+            console.error('Logging error', err);
+          }
         }
 
         // Decide where to send the user (do not wait for Apps Script response)

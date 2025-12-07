@@ -31,7 +31,7 @@ a.cta.big{padding:14px 22px;border-radius:12px;font-size:16px}
 .section .center{text-align:center}
 
 /* v2 Trainer layout */
-.trainer-section-v2{position:relative}.trainer-float-v2{float:left;margin:0 18px 12px 0;--trainer-photo-size:180px}
+.trainer-section-v2{position:relative}.trainer-float-v2{float:right;margin:0 0 12px 18px;--trainer-photo-size:270px}
 .trainer-float-v2 .photo-wrap-v2{width:var(--trainer-photo-size);height:var(--trainer-photo-size);border-radius:50%;padding:6px;border:3px solid var(--cta-bg);box-shadow:0 0 20px rgba(37,99,235,.45);background:radial-gradient(circle at 50% 50%, rgba(37,99,235,.25), rgba(37,99,235,0) 70%)}
 .trainer-float-v2 .photo-wrap-v2 img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:0}
 .clear-v2{clear:both}.trainer-section-v2 p{line-height:1.8;margin:0 0 12px}.trainer-section-v2 .cta-wrap-v2{text-align:center;margin-top:18px}
