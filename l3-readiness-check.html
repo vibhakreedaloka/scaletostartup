@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Engineered Scale Mastery Program Readiness Check | Scale Startup</title>
+<!-- Fonts & global styles (same system as 1on1-call.html) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&amp;family=Montserrat:wght@500;700;800&amp;family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<link href="assets/favicon-32x32.png" rel="icon"/>
+<style>
+    body.form-page {
+      margin: 0;
+      background: var(--light-bg);
+      color: var(--dark-text);
+      font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* Use slightly tighter padding for this form page */
+    .form-page .section {
+      padding: 48px 20px;
+    }
+
+    .form-page .section.dark:first-of-type {
+      padding-top: 36px;
+    }
+
+    .header {
+      background: #F8FAFC;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .header .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .header img.logo {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+
+    /* Generic form layout */
+    .precall-form .form-block {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .precall-form .form-title {
+      font-family: Inter, system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 1.2;
+      margin: 0 0 8px;
+      text-align: left;
+    }
+
+    .precall-form .form-subtitle {
+      font-family: Roboto, system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0 0 24px;
+      color: #e5e7eb;
+    }
+
+    .section.light .precall-form .form-subtitle {
+      color: #475569;
+    }
+
+    .precall-form .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .precall-form .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .precall-form label.field-label {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .precall-form input[type="text"],
+    .precall-form input[type="email"],
+    .precall-form textarea {
+      width: 100%;
+      max-width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      font-family: Roboto, system-ui, sans-serif;
+      font-size: 14px;
+      box-sizing: border-box;
+      background: rgba(248, 250, 252, 0.95);
+    }
+
+    .section.dark .precall-form input[type="text"],
+    .section.dark .precall-form input[type="email"],
+    .section.dark .precall-form textarea {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: rgba(148, 163, 184, 0.8);
+      color: var(--light-text);
+    }
+
+    .precall-form textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .precall-form .question-title {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 12px;
+    }
+
+    .precall-form .helper-text {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-bottom: 12px;
+    }
+
+    .section.dark .precall-form .helper-text {
+      color: #cbd5f5;
+    }
+
+    /* Option lists (radio/checkbox) */
+    .precall-form .option-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .precall-form .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 14px;
+      line-height: 1.5;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+
+    .section.light .precall-form .option {
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    .section.dark .precall-form .option {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: rgba(148, 163, 184, 0.55);
+    }
+
+    .precall-form .option input {
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .precall-form .option span {
+      display: block;
+    }
+
+    /* Submit button */
+    .precall-form .actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .precall-form .primary-btn {
+      font-family: Montserrat, system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 12px 28px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      background: var(--cta-bg); /* Electric Blue #2563EB */
+      color: var(--light-text);
+      box-shadow: 0 0 16px rgba(37, 99, 235, 0.5);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+    }
+
+    .precall-form .primary-btn:hover,
+    .precall-form .primary-btn:focus {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+      box-shadow: 0 0 26px rgba(37, 99, 235, 0.9);
+      outline: none;
+    }
+
+    .precall-form .required-note {
+      font-size: 12px;
+      color: #cbd5f5;
+    }
+
+    .section.light .precall-form .required-note {
+      color: #64748b;
+    }
+
+    /* Footer */
+    .form-page .footer-slim {
+      padding: 8px 16px 6px;
+    }
+
+    .form-page .footer-meta {
+      text-align: center;
+      font-size: 10px;
+      color: #64748b;
+      margin: 0;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 768px) {
+      .precall-form .field-row {
+        grid-template-columns: 1fr;
+      }
+
+      .precall-form .form-title {
+        font-size: 26px;
+      }
+
+      .header img.logo {
+        height: 46px;
+      }
+    }
+  
+    /* Custom validation error message (red background instead of default tooltip) */
+    .field-error {
+      margin-top: 6px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: #DC2626; /* red */
+      color: #ffffff;
+      font-size: 12px;
+      line-height: 1.4;
+      display: inline-block;
+    }
+
+    .section.dark .field-error {
+      background: #B91C1C;
+    }
+
+
+    
+
+
+    /* L3 readiness tweaks */
+    .option label { display: inline-flex; align-items: center; gap: 10px; }
+    .option label span { display: inline; }
+    .option input[type="radio"] { margin-top: 0; }
+
+
+    /* Result box: only show styling when populated */
+    #resultBox { margin-top: 14px; padding: 0; border: none; background: transparent; border-radius: 0; }
+    #resultBox:not(:empty) { padding: 12px 14px; border-radius: 14px; border: 1px solid rgba(148,163,184,0.35); }
+    .section.dark #resultBox:not(:empty) { background: rgba(2,6,23,0.45); }
+    .section.light #resultBox:not(:empty) { background: rgba(248,250,252,0.9); }
+
+
+    /* Ensure WhatsApp (tel) input matches other input styling */
+    .precall-form input[type="tel"]{
+      width: 100%;
+      max-width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      font-family: Roboto, system-ui, sans-serif;
+      font-size: 14px;
+      box-sizing: border-box;
+      background: rgba(248, 250, 252, 0.95);
+      min-height: 44px;
+    }
+    .section.dark .precall-form input[type="tel"]{
+      background: rgba(15, 23, 42, 0.45);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: #e5e7eb;
+    }
+
+
+    /* WhatsApp input height aligned with Email */
+    .precall-form input[type="tel"]{ min-height: unset; height: auto; }
+
+
+    /* Keep input labels left-aligned */
+    .precall-form .field, .precall-form .field-label { text-align: left; }
+
+
+    
+
+
+    
+
+
+    
+
+
+    /* Option rows: full box clickable (including border), same-line, compact */
+    .option { cursor: pointer; padding: 0 !important; }
+    .option label { display: flex; align-items: center; gap: 10px; width: 100%; cursor: pointer; padding: 8px 12px; }
+    .option label span { display: inline; line-height: 1.2; }
+    .option input[type="radio"] { margin: 0; }
+</style>
+</head>
+<body class="home form-page">
+<!-- Top logo bar (same logo as 1on1-call.html, left aligned) -->
+<div class="header">
+<div class="wrap">
+<a href="index.html">
+<img alt="Scale Startup" class="logo" src="assets/S Horizontal Logo with BG Shrinked.png"/>
+</a>
+</div>
+</div>
+<form class="precall-form" id="readinessForm" novalidate="" action="https://script.google.com/macros/s/AKfycbzkpGiG_j1vtfIUhbOtOvcevKhV1-e18KTFsgbgkZ5R6eFy246wZoF-wA0ZQxqAf9uW7A/exec" method="post"><section class="section dark"><div class="container"><div class="form-block" style=""><h1 class="form-title" style="text-align:center;"><span>Engineered Scale Mastery</span><br/><span>Program Readiness Check</span></h1><p class="form-subtitle" style="text-align:center;">Quick screening to verify if you're ready for the program where You Execute the Learning.</p><div class="field-row"><div class="field"><label class="field-label" for="name">Name</label><input id="name" name="name" placeholder="Your Full Name" required="" type="text"/></div><div class="field"><label class="field-label" for="company">Company</label><input id="company" name="company" placeholder="Company / Startup Name" required="" type="text"/></div></div><div class="field-row" style="margin-top:14px;"><div class="field"><label class="field-label" for="email">Email</label><input id="email" name="email" placeholder="name@company.com" required="" type="email"/></div><div class="field"><label class="field-label" for="whatsapp">WhatsApp</label><input id="whatsapp" name="whatsapp" placeholder="+91 xxxxx xxxxx" required="" type="tel"/><p class="helper-text">Used only for scheduling + action items.</p></div></div></div></div></section><section class="section light"><div class="container"><div class="form-block"><h2 class="question-title">1) In the next 90 days, what is the ONE outcome you want most?</h2><ul class="option-list"><li class="option"><label><input name="q1" required="" type="radio" value="speed"/><span>Speed up releases</span></label></li><li class="option"><label><input name="q1" type="radio" value="bugs"/><span>Reduce bugs</span></label></li><li class="option"><label><input name="q1" type="radio" value="cost"/><span>Cut cloud cost</span></label></li><li class="option"><label><input name="q1" type="radio" value="uptime"/><span>Improve uptime / reduce downtime</span></label></li><li class="option"><label><input name="q1" type="radio" value="perf"/><span>Improve performance (API/app speed)</span></label></li><li class="option"><label><input name="q1" type="radio" value="conversion"/><span>Improve conversion / revenue flow</span></label></li></ul></div></div></section><section class="section dark"><div class="container"><div class="form-block"><h2 class="question-title">2) If nothing changes in the next 90 days, what breaks first?</h2><ul class="option-list"><li class="option"><label><input name="q2" required="" type="radio" value="revenue"/><span>Revenue / cashflow</span></label></li><li class="option"><label><input name="q2" type="radio" value="customers"/><span>Customers / retention</span></label></li><li class="option"><label><input name="q2" type="radio" value="team"/><span>Team morale / attrition risk</span></label></li><li class="option"><label><input name="q2" type="radio" value="investor"/><span>Investor / stakeholder pressure</span></label></li><li class="option"><label><input name="q2" type="radio" value="ops"/><span>Ops chaos / support load</span></label></li></ul></div></div></section><section class="section light"><div class="container"><div class="form-block"><h2 class="question-title">3) How many people actively work on the product weekly?</h2><p class="helper-text">Includes dev + QA + DevOps + product contributors.</p><ul class="option-list"><li class="option"><label><input name="q3" required="" type="radio" value="1"/><span>1 (solo)</span></label></li><li class="option"><label><input name="q3" type="radio" value="2-5"/><span>2–5</span></label></li><li class="option"><label><input name="q3" type="radio" value="6-15"/><span>6–15</span></label></li><li class="option"><label><input name="q3" type="radio" value="16+"/><span>16+</span></label></li></ul></div></div></section><section class="section dark"><div class="container"><div class="form-block"><h2 class="question-title">4) Who owns technical decisions day-to-day?</h2><ul class="option-list"><li class="option"><label><input name="q4" required="" type="radio" value="founder"/><span>Founder</span></label></li><li class="option"><label><input name="q4" type="radio" value="cto"/><span>CTO</span></label></li><li class="option"><label><input name="q4" type="radio" value="senior"/><span>Senior dev / tech lead</span></label></li><li class="option"><label><input name="q4" type="radio" value="vendor"/><span>External agency / vendor</span></label></li><li class="option"><label><input name="q4" type="radio" value="depends"/><span>“Depends” / nobody really owns it</span></label></li></ul></div></div></section><section class="section light"><div class="container"><div class="form-block"><h2 class="question-title">5) Will the decision-maker attend at least 2 sessions/week or review action items weekly?</h2><ul class="option-list"><li class="option"><label><input name="q5" required="" type="radio" value="yes"/><span>Yes</span></label></li><li class="option"><label><input name="q5" type="radio" value="no"/><span>No</span></label></li></ul></div></div></section><section class="section dark"><div class="container"><div class="form-block"><h2 class="question-title">6) Can your team commit 4–6 hours/week to implement changes from L3?</h2><ul class="option-list"><li class="option"><label><input name="q6" required="" type="radio" value="yes"/><span>Yes</span></label></li><li class="option"><label><input name="q6" type="radio" value="maybe"/><span>Maybe</span></label></li><li class="option"><label><input name="q6" type="radio" value="no"/><span>No</span></label></li></ul></div></div></section><section class="section light"><div class="container"><div class="form-block"><h2 class="question-title">7) What’s your biggest blocker to execution right now?</h2><ul class="option-list"><li class="option"><label><input name="q7" required="" type="radio" value="time"/><span>No time (always firefighting)</span></label></li><li class="option"><label><input name="q7" type="radio" value="skills"/><span>Skill gaps / lack of senior guidance</span></label></li><li class="option"><label><input name="q7" type="radio" value="requirements"/><span>Unclear requirements / scope keeps changing</span></label></li><li class="option"><label><input name="q7" type="radio" value="discipline"/><span>Team discipline / ownership issues</span></label></li><li class="option"><label><input name="q7" type="radio" value="dependencies"/><span>External dependencies (vendor, approvals, etc.)</span></label></li></ul></div></div></section><section class="section dark"><div class="container"><div class="form-block"><h2 class="question-title">8) How often do you deploy today?</h2><ul class="option-list"><li class="option"><label><input name="q8" required="" type="radio" value="daily"/><span>Daily</span></label></li><li class="option"><label><input name="q8" type="radio" value="weekly"/><span>Weekly</span></label></li><li class="option"><label><input name="q8" type="radio" value="monthly"/><span>Monthly</span></label></li><li class="option"><label><input name="q8" type="radio" value="rare"/><span>Rare</span></label></li><li class="option"><label><input name="q8" type="radio" value="fear"/><span>We’re scared to deploy 😅</span></label></li></ul></div></div></section><section class="section light"><div class="container"><div class="form-block"><h2 class="question-title">9) Do you have at least basic monitoring + error tracking?</h2><ul class="option-list"><li class="option"><label><input name="q9" required="" type="radio" value="yes"/><span>Yes</span></label></li><li class="option"><label><input name="q9" type="radio" value="some"/><span>Some (partial)</span></label></li><li class="option"><label><input name="q9" type="radio" value="no"/><span>No</span></label></li></ul></div></div></section><section class="section dark"><div class="container"><div class="form-block"><h2 class="question-title">10) Do you have a clean “single source of truth” for requirements?</h2><ul class="option-list"><li class="option"><label><input name="q10" required="" type="radio" value="spec"/><span>Spec doc / PRD</span></label></li><li class="option"><label><input name="q10" type="radio" value="tickets"/><span>Tickets (Jira/Linear/Trello) are the truth</span></label></li><li class="option"><label><input name="q10" type="radio" value="whatsapp"/><span>WhatsApp / calls / memory 😅</span></label></li><li class="option"><label><input name="q10" type="radio" value="head"/><span>Mostly in someone’s head</span></label></li></ul></div></div></section><section class="section light"><div class="container"><div class="form-block"><h2 class="question-title">11) What’s the most painful recurring issue?</h2><ul class="option-list"><li class="option"><label><input name="q11" required="" type="radio" value="bugs"/><span>Too many bugs / regressions</span></label></li><li class="option"><label><input name="q11" type="radio" value="slow"/><span>Slow API / slow app</span></label></li><li class="option"><label><input name="q11" type="radio" value="downtime"/><span>Downtime / incidents</span></label></li><li class="option"><label><input name="q11" type="radio" value="cloud"/><span>High cloud cost</span></label></li><li class="option"><label><input name="q11" type="radio" value="messy"/><span>Messy code / hard to change</span></label></li><li class="option"><label><input name="q11" type="radio" value="devslow"/><span>Slow delivery cycles</span></label></li><li class="option"><label><input name="q11" type="radio" value="notsure"/><span>Not sure / everything is mixed</span></label></li></ul></div></div></section><section class="section dark"><div class="container"><div class="form-block"><h2 class="question-title">12) How ready are you to change process + habits (not just code)?</h2><p class="helper-text">Honest answer wins. This isn’t an exam.</p><ul class="option-list"><li class="option"><label><input name="q12" required="" type="radio" value="not_at_all"/><span>Not at all ready</span></label></li><li class="option"><label><input name="q12" type="radio" value="think"/><span>I need to think</span></label></li><li class="option"><label><input name="q12" type="radio" value="depends"/><span>I am ready, but depends on the change required.</span></label></li><li class="option"><label><input name="q12" type="radio" value="all_in"/><span>I will change everything so that I can scale with calm.</span></label></li></ul></div></div></section><section class="section light"><div class="container"><div class="form-block"><h2 class="question-title">Anything else we should know? (Optional)</h2><textarea id="notes" name="notes" placeholder="Share context: recent incident, big deadlines, vendor issues, etc."></textarea><button class="primary-btn" id="submitBtn" type="submit">Submit</button></div></div></section></form>
+<!-- Light footer -->
+<footer class="section light footer-slim">
+<div class="container">
+<p class="footer-meta">Copyright © 2025 KreedaLoka Private Limited | All Rights Reserved.</p>
+</div>
+</footer>
+<script>(function(){
+  const form = document.getElementById('readinessForm');
+  const submitBtn = document.getElementById('submitBtn');
+  function getVal(name){
+    const el = form.elements[name];
+    if(!el) return null;
+    if(el instanceof RadioNodeList){
+      return el.value || null;
+    }
+    return el.value || null;
+  }
+
+function computeScore(){
+    let score = 0;
+
+    const q3 = getVal('q3');
+    if(q3 && q3 !== '1') score += 1;
+
+    const q4 = getVal('q4');
+    if(q4 === 'founder' || q4 === 'cto' || q4 === 'senior') score += 1;
+
+    const q5 = getVal('q5');
+    if(q5 === 'yes') score += 1;
+
+    const q6 = getVal('q6');
+    if(q6 === 'yes') score += 1;
+
+    const q8 = getVal('q8');
+    if(q8 === 'daily' || q8 === 'weekly') score += 1;
+
+    const q9 = getVal('q9');
+    if(q9 === 'yes' || q9 === 'some') score += 1;
+
+    const q10 = getVal('q10');
+    if(q10 === 'spec' || q10 === 'tickets') score += 1;
+
+    const q11 = getVal('q11');
+    if(q11 && q11 !== 'notsure') score += 1;
+
+    const q12 = getVal('q12');
+    if(q12 === 'depends' || q12 === 'all_in') score += 1;
+return score;
+  }
+
+  
+function checkNonNegotiables(){
+    const q4 = getVal('q4');
+    const q5 = getVal('q5');
+    const q6 = getVal('q6');
+
+    const ownershipOk = (q4 && q4 !== 'depends'); // vendor allowed but not ideal
+    const decisionMakerOk = (q5 === 'yes');
+    const bandwidthOk = (q6 === 'yes');
+
+    return {
+      ownershipOk: !!ownershipOk,
+      decisionMakerOk: !!decisionMakerOk,
+      bandwidthOk: !!bandwidthOk,
+      pass: (ownershipOk && decisionMakerOk && bandwidthOk)
+    };
+  }
+
+  
+  function redirectTo(url){
+    window.location.href = url;
+  }
+
+  
+
+  function getContainer(el){
+    if(!el) return null;
+    return el.closest('.field') || el.closest('.option-list') || el.parentElement || el;
+  }
+
+  function showError(el, message){
+    var container = getContainer(el);
+    if(!container) return;
+    var existing = container.querySelector('.field-error');
+    if(existing){
+      existing.textContent = message;
+      return;
+    }
+    var div = document.createElement('div');
+    div.className = 'field-error';
+    div.textContent = message;
+    container.appendChild(div);
+  }
+
+  function clearAllErrors(){
+    Array.prototype.slice.call(form.querySelectorAll('.field-error')).forEach(function(node){
+      if(node && node.parentNode) node.parentNode.removeChild(node);
+    });
+  }
+
+  function validateForm(){
+    clearAllErrors();
+
+    var firstInvalid = null;
+    var elements = Array.prototype.slice.call(form.elements || []);
+    var processedGroups = {};
+
+    elements.forEach(function(el){
+      if(!el || !el.name) return;
+      if(el.disabled || el.type === 'hidden') return;
+
+      var type = (el.type || '').toLowerCase();
+
+      // Radio groups as single field
+      if(type === 'radio'){
+        if(processedGroups[el.name]) return;
+        processedGroups[el.name] = true;
+
+        var group = form.querySelectorAll('input[name="' + el.name + '"]');
+        var anyChecked = false;
+        Array.prototype.slice.call(group).forEach(function(g){
+          if(g.checked) anyChecked = true;
+        });
+
+        if(!anyChecked){
+          if(!firstInvalid) firstInvalid = group[0];
+          showError(group[0], 'Please select an option');
+        }
+      } else {
+        // Use built-in validation messages (but DO NOT use native-tooltips)
+        if(!el.checkValidity()){
+          if(!firstInvalid) firstInvalid = el;
+          var msg = el.validationMessage || 'Fill out this field';
+          showError(el, msg);
+        }
+      }
+    });
+
+    if(firstInvalid){
+      firstInvalid.focus();
+      return false;
+    }
+    return true;
+  }
+
+  // Clear error as user types/changes
+  form.addEventListener('input', function(e){
+    var el = e.target;
+    var container = getContainer(el);
+    if(!container) return;
+    var err = container.querySelector('.field-error');
+    if(err) err.parentNode.removeChild(err);
+  });
+
+  form.addEventListener('change', function(e){
+    var el = e.target;
+    var container = getContainer(el);
+    if(!container) return;
+    var err = container.querySelector('.field-error');
+    if(err) err.parentNode.removeChild(err);
+  });
+
+  
+  // Re-enable submit if user returns via back/forward cache
+  
+  // Make entire option box clickable (including li border area)
+  Array.prototype.slice.call(form.querySelectorAll('.option')).forEach(function(li){
+    li.addEventListener('click', function(e){
+      var input = li.querySelector('input[type="radio"]');
+      if(!input) return;
+      // If user clicked the input itself, default behavior is fine
+      if(e && e.target === input) return;
+      input.checked = true;
+      input.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+  });
+
+window.addEventListener('pageshow', function(){
+    if(submitBtn) submitBtn.disabled = false;
+  });
+
+  form.addEventListener('submit', function(e){
+    // Handle submission via JavaScript: validate, log to Apps Script, then redirect.
+    e.preventDefault();
+
+    if(!validateForm()) return;
+
+    submitBtn.disabled = true;
+
+    const score = computeScore();
+    const nonNeg = checkNonNegotiables();
+
+    const eligible = (nonNeg.pass && score >= 7);
+
+    // Build payload (all form fields + eligibility)
+    const payload = buildPayload({
+      score: score,
+      nonNegotiablesPass: nonNeg.pass,
+      ownershipOk: nonNeg.ownershipOk,
+      decisionMakerOk: nonNeg.decisionMakerOk,
+      bandwidthOk: nonNeg.bandwidthOk,
+      eligible: eligible
+    });
+
+    // Fire-and-forget to Apps Script (do not wait for response)
+    sendToAppsScript(payload);
+
+    if(eligible){
+      redirectTo('l3-eligible.html');
+    }else{
+      redirectTo('l3-not-eligible.html');
+    }
+  });
+
+  function buildPayload(extra){
+    const payload = {};
+    const elements = Array.prototype.slice.call(form.elements || []);
+    const processedGroups = {};
+
+    elements.forEach(function(el){
+      if(!el || !el.name) return;
+      if(el.disabled) return;
+
+      const type = (el.type || '').toLowerCase();
+      if(type === 'submit' || type === 'button' || type === 'file') return;
+
+      // Handle radio/checkbox groups as single field
+      if(type === 'radio' || type === 'checkbox'){
+        if(processedGroups[el.name]) return;
+        processedGroups[el.name] = true;
+
+        const group = form.querySelectorAll('[name="' + el.name + '"]');
+        const values = [];
+        Array.prototype.slice.call(group).forEach(function(g){
+          if(g && g.checked){
+            values.push(g.value || 'on');
+          }
+        });
+
+        if(type === 'radio'){
+          payload[el.name] = (values[0] || '');
+        }else{
+          payload[el.name] = values.join(', ');
+        }
+        return;
+      }
+
+      payload[el.name] = (el.value || '').trim();
+    });
+
+    // Metadata
+    payload._form = 'l3-readiness-check';
+    payload._submittedAt = new Date().toISOString();
+    payload._userAgent = navigator.userAgent || '';
+    payload._referrer = document.referrer || '';
+
+    // Eligibility fields (as explicit Yes/No)
+    if(extra){
+      payload.eligibilityScore = String(extra.score ?? '');
+      payload.nonNegotiablesPass = extra.nonNegotiablesPass ? 'Yes' : 'No';
+      payload.ownershipOk = extra.ownershipOk ? 'Yes' : 'No';
+      payload.decisionMakerOk = extra.decisionMakerOk ? 'Yes' : 'No';
+      payload.bandwidthOk = extra.bandwidthOk ? 'Yes' : 'No';
+      payload.eligible = extra.eligible ? 'Yes' : 'No';
+      payload.eligibilityThresholdScore = '7';
+    }
+
+    return payload;
+  }
+
+  function sendToAppsScript(payload){
+    const url = form.getAttribute('action') || 'https://script.google.com/macros/s/AKfycbzkpGiG_j1vtfIUhbOtOvcevKhV1-e18KTFsgbgkZ5R6eFy246wZoF-wA0ZQxqAf9uW7A/exec';
+    try{
+      if(navigator.sendBeacon){
+        const blob = new Blob([JSON.stringify(payload)], { type: 'text/plain;charset=UTF-8' });
+        navigator.sendBeacon(url, blob);
+      }else{
+        fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+          body: JSON.stringify(payload),
+          keepalive: true
+        });
+      }
+    }catch(err){
+      if(window.console && console.error){
+        console.error('Apps Script submit failed:', err);
+      }
+    }
+  }
+})();</script></body>
+</html>

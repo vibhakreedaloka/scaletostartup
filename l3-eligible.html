@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Congratulations - You're Eligible | Scale Startup</title>
+<!-- Fonts & global styles (same system as 1on1-call.html) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&amp;family=Montserrat:wght@500;700;800&amp;family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<link href="assets/favicon-32x32.png" rel="icon"/>
+<style>
+    body.form-page {
+      margin: 0;
+      background: var(--light-bg);
+      color: var(--dark-text);
+      font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* Use slightly tighter padding for this form page */
+    .form-page .section {
+      padding: 48px 20px;
+    }
+
+    .form-page .section.dark:first-of-type {
+      padding-top: 36px;
+    }
+
+    .header {
+      background: #F8FAFC;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .header .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .header img.logo {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+
+    /* Generic form layout */
+    .precall-form .form-block {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .precall-form .form-title {
+      font-family: Inter, system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 1.2;
+      margin: 0 0 8px;
+      text-align: left;
+    }
+
+    .precall-form .form-subtitle {
+      font-family: Roboto, system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0 0 24px;
+      color: #e5e7eb;
+    }
+
+    .section.light .precall-form .form-subtitle {
+      color: #475569;
+    }
+
+    .precall-form .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .precall-form .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .precall-form label.field-label {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .precall-form input[type="text"],
+    .precall-form input[type="email"],
+    .precall-form textarea {
+      width: 100%;
+      max-width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      font-family: Roboto, system-ui, sans-serif;
+      font-size: 14px;
+      box-sizing: border-box;
+      background: rgba(248, 250, 252, 0.95);
+    }
+
+    .section.dark .precall-form input[type="text"],
+    .section.dark .precall-form input[type="email"],
+    .section.dark .precall-form textarea {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: rgba(148, 163, 184, 0.8);
+      color: var(--light-text);
+    }
+
+    .precall-form textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .precall-form .question-title {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 12px;
+    }
+
+    .precall-form .helper-text {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-bottom: 12px;
+    }
+
+    .section.dark .precall-form .helper-text {
+      color: #cbd5f5;
+    }
+
+    /* Option lists (radio/checkbox) */
+    .precall-form .option-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .precall-form .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 14px;
+      line-height: 1.5;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+
+    .section.light .precall-form .option {
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    .section.dark .precall-form .option {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: rgba(148, 163, 184, 0.55);
+    }
+
+    .precall-form .option input {
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .precall-form .option span {
+      display: block;
+    }
+
+    /* Submit button */
+    .precall-form .actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .precall-form .primary-btn {
+      font-family: Montserrat, system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 12px 28px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      background: var(--cta-bg); /* Electric Blue #2563EB */
+      color: var(--light-text);
+      box-shadow: 0 0 16px rgba(37, 99, 235, 0.5);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+    }
+
+    .precall-form .primary-btn:hover,
+    .precall-form .primary-btn:focus {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+      box-shadow: 0 0 26px rgba(37, 99, 235, 0.9);
+      outline: none;
+    }
+
+    .precall-form .required-note {
+      font-size: 12px;
+      color: #cbd5f5;
+    }
+
+    .section.light .precall-form .required-note {
+      color: #64748b;
+    }
+
+    /* Footer */
+    .form-page .footer-slim {
+      padding: 8px 16px 6px;
+    }
+
+    .form-page .footer-meta {
+      text-align: center;
+      font-size: 10px;
+      color: #64748b;
+      margin: 0;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 768px) {
+      .precall-form .field-row {
+        grid-template-columns: 1fr;
+      }
+
+      .precall-form .form-title {
+        font-size: 26px;
+      }
+
+      .header img.logo {
+        height: 46px;
+      }
+    }
+  
+    /* Custom validation error message (red background instead of default tooltip) */
+    .field-error {
+      margin-top: 6px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: #DC2626; /* red */
+      color: #ffffff;
+      font-size: 12px;
+      line-height: 1.4;
+      display: inline-block;
+    }
+
+    .section.dark .field-error {
+      background: #B91C1C;
+    }
+
+
+    
+
+
+    /* L3 readiness tweaks */
+    .option label { display: inline-flex; align-items: center; gap: 10px; }
+    .option label span { display: inline; }
+    .option input[type="radio"] { margin-top: 0; }
+
+
+    /* Result box: only show styling when populated */
+    #resultBox { margin-top: 14px; padding: 0; border: none; background: transparent; border-radius: 0; }
+    #resultBox:not(:empty) { padding: 12px 14px; border-radius: 14px; border: 1px solid rgba(148,163,184,0.35); }
+    .section.dark #resultBox:not(:empty) { background: rgba(2,6,23,0.45); }
+    .section.light #resultBox:not(:empty) { background: rgba(248,250,252,0.9); }
+
+
+    /* Ensure WhatsApp (tel) input matches other input styling */
+    .precall-form input[type="tel"]{
+      width: 100%;
+      max-width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      font-family: Roboto, system-ui, sans-serif;
+      font-size: 14px;
+      box-sizing: border-box;
+      background: rgba(248, 250, 252, 0.95);
+      min-height: 44px;
+    }
+    .section.dark .precall-form input[type="tel"]{
+      background: rgba(15, 23, 42, 0.45);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: #e5e7eb;
+    }
+
+
+    /* WhatsApp input height aligned with Email */
+    .precall-form input[type="tel"]{ min-height: unset; height: auto; }
+
+
+    /* Keep input labels left-aligned */
+    .precall-form .field, .precall-form .field-label { text-align: left; }
+
+
+    
+
+
+    
+
+
+    
+
+
+    /* Option rows: full box clickable (including border), same-line, compact */
+    .option { cursor: pointer; padding: 0 !important; }
+    .option label { display: flex; align-items: center; gap: 10px; width: 100%; cursor: pointer; padding: 8px 12px; }
+    .option label span { display: inline; line-height: 1.2; }
+    .option input[type="radio"] { margin: 0; }
+
+
+    /* Eligible page tweaks */
+    .eligible-hero .form-title { font-size: 65px !important; line-height: 1.1 !important; }
+    /* Make anchor buttons match primary button feel */
+    a.primary-btn { border: none; }
+
+
+    /* Eligible CTA buttons: true button look + 2x size */
+    .eligible-hero a.primary-btn.big-cta{
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none !important;
+      background: var(--cta-bg) !important;
+      color: var(--light-text) !important;
+      font-size: 32px !important;
+      padding: 24px 56px !important;
+      border-radius: 18px !important;
+      box-shadow: 0 0 28px rgba(37, 99, 235, 0.55) !important;
+    }
+    .eligible-hero a.primary-btn.big-cta:hover{
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+    .eligible-hero a.primary-btn.big-cta.dull-cta{
+      opacity: 0.75;
+      filter: saturate(0.85);
+      box-shadow: 0 0 14px rgba(37, 99, 235, 0.25) !important;
+    }
+
+
+    /* Make full payment CTA bold */
+    .eligible-hero a.primary-btn.big-cta.full-cta { font-weight: 800 !important; }
+</style>
+</head>
+<body class="home form-page">
+<!-- Top logo bar (same logo as 1on1-call.html, left aligned) -->
+<div class="header">
+<div class="wrap">
+<a href="index.html">
+<img alt="Scale Startup" class="logo" src="assets/S Horizontal Logo with BG Shrinked.png"/>
+</a>
+</div>
+</div>
+<!-- Light footer -->
+<section class="section dark eligible-hero"><div class="container"><div class="form-block"><h1 class="form-title" style="text-align:center;">Congratulations - You're Eligible 🎉</h1><h2 class="question-title" style="text-align:center;">Let’s lock your spot and start shipping weekly.</h2><div style="text-align:center;margin-top:16px;"><a class="primary-btn big-cta full-cta" href="https://tech.scalestartup.in/web/checkout/69440823fe39895d24c3586a">Pay Full ₹97,000/- ✅</a></div><p class="helper-text" style="text-align:center;margin-top:8px;">(EMI Options Available at Checkout)</p><p style="text-align:center;font-weight:700;margin:16px 0 10px 0;">OR</p><div style="text-align:center;margin-top:6px;"><a class="primary-btn big-cta dull-cta" href="https://tech.scalestartup.in/web/checkout/69440815616c9add67356980">Reserve Seat for ₹5,000/- 💺</a></div><p class="helper-text" style="text-align:center;margin-top:8px;max-width:620px;margin-left:auto;margin-right:auto;">Reserve Your Seat Now. Pay the full amount before 30th Jan, 2026.<br/>Otherwise, you will lose your reservation.</p><p style="text-align:center;font-weight:600;margin-top:18px;">Reminder: You’re not buying “information.” You’re buying execution support.</p></div></div></section><section class="section light"><div class="container"><div class="form-block"><h2 class="question-title" style="text-align:center;">Make sure you are ready for these:</h2><ul style="max-width:640px;margin:12px auto 0 auto;line-height:1.6;"><li>Decision-maker is involved weekly ✅</li><li>Team can implement 4–6 hrs/week ✅</li><li>You’re ready to follow process, not vibes ✅</li></ul></div></div></section><section class="section dark"><div class="container"><div class="form-block"><h2 class="question-title" style="text-align:center;">What you’ll get inside Engineered Scale Mastery Program</h2><ul style="max-width:760px;margin:12px auto 0 auto;line-height:1.65;"><li>Weekly execution plan (what to fix first + why)</li><li>Spec clarity + dev workflow to reduce rework</li><li>Release process that doesn’t break production</li><li>Monitoring + stability basics to stop firefighting</li><li>Systems that make scaling calmer (not chaotic)</li></ul></div></div></section><section class="section light"><div class="container"><div class="form-block"><p class="small" style="text-align:center;margin:0;">Copyright © 2025 KreedaLoka Private Limited | All Rights Reserved.</p></div></div></section></body>
+</html>
