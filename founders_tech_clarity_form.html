@@ -1,19 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Founders’ Tech Clarity Call – Pre-Call Form | Scale Startup</title>
-
-  <!-- Fonts & global styles (same system as 1on1-call.html) -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Montserrat:wght@500;700;800&family=Roboto:wght@400;500&display=swap"
-    rel="stylesheet"
-  />
-  <link href="styles.css" rel="stylesheet" />
-  <link href="assets/favicon-32x32.png" rel="icon" />
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Founders’ Tech Clarity Call – Pre-Call Form | Scale Startup</title>
+<!-- Fonts & global styles (same system as 1on1-call.html) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&amp;family=Montserrat:wght@500;700;800&amp;family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<link href="assets/favicon-32x32.png" rel="icon"/>
+<style>
     body.form-page {
       margin: 0;
       background: var(--light-bg);
@@ -263,486 +259,349 @@
       background: #B91C1C;
     }
 </style>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-75FJPRCDKE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-75FJPRCDKE');
+</script>
+<script defer="" src="assets/ga4-events.js"></script>
 </head>
-<body class="home form-page">
-  <!-- Top logo bar (same logo as 1on1-call.html, left aligned) -->
-  <div class="header">
-    <div class="wrap">
-      <a href="index.html">
-        <img
-          alt="Scale Startup"
-          class="logo"
-          src="assets/S Horizontal Logo with BG Shrinked.png"
-        />
-      </a>
-    </div>
-  </div>
-
-  <form
-    class="precall-form"
-    action="https://script.google.com/macros/s/AKfycbybc-52vYz9GFR7EUtH3KByNYTOZ55YlzTNjuM7J-UBYzc3353QpVe1i31EY4XgRV5X/exec"
-    method="post"
-  >
-    <!-- Dark section: Title + Name + Email -->
-    <section class="section dark">
-      <div class="container">
-        <div class="form-block">
-          <h1 class="form-title">Founders’ Tech Clarity Call – Pre-Call Form</h1>
-          <p class="form-subtitle">
+<body class="home form-page" data-page="form">
+<!-- Top logo bar (same logo as 1on1-call.html, left aligned) -->
+<div class="header">
+<div class="wrap">
+<a href="index.html">
+<img alt="Scale Startup" class="logo" src="assets/S Horizontal Logo with BG Shrinked.png"/>
+</a>
+</div>
+</div>
+<form action="https://script.google.com/macros/s/AKfycbybc-52vYz9GFR7EUtH3KByNYTOZ55YlzTNjuM7J-UBYzc3353QpVe1i31EY4XgRV5X/exec" class="precall-form" data-form-id="founders_tech_clarity" id="leadForm" method="post">
+<!-- Dark section: Title + Name + Email -->
+<section class="section dark">
+<div class="container">
+<div class="form-block">
+<h1 class="form-title">Founders’ Tech Clarity Call – Pre-Call Form</h1>
+<p class="form-subtitle">
             Please fill this so the 30-minute call is fully customised for you.
           </p>
-
-          <div class="field-row">
-            <div class="field">
-              <label for="name" class="field-label">Your Name</label>
-              <input type="text" id="name" name="name" required />
-            </div>
-            <div class="field">
-              <label for="email" class="field-label">Your Email</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Light section: Q1 - Who are you -->
-    <section class="section light">
-      <div class="container">
-        <div class="form-block">
-          <!-- Q1: Role (filter) -->
-          <h2 class="question-title">Who are you in your company?</h2>
-
-          <ul class="option-list">
-            <li>
-              <label class="option">
-                <input
-                  type="radio"
-                  name="role"
-                  value="founder"
-                  required
-                />
-                <span>Founder / Co-founder of a tech or tech-enabled business</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input type="radio" name="role" value="cto" />
-                <span>CTO / Head of Engineering / Head of Technology</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input type="radio" name="role" value="techlead" />
-                <span>Tech Lead / Senior Developer responsible for major tech decisions</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input type="radio" name="role" value="nontechfounder" />
-                <span>Non-tech Founder handling tech vendors / agencies</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input type="radio" name="role" value="serviceprovider" />
-                <span>Service provider / agency owner building software for clients</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input type="radio" name="role" value="none" />
-                <span>None of the above – I’m just exploring / learning</span>
-              </label>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Dark section: Q2 - Stage (now radio instead of dropdown) -->
-    <section class="section dark">
-      <div class="container">
-        <div class="form-block">
-          <!-- Q2: Stage -->
-          <h2 class="question-title">Which of these best describes your current situation?</h2>
-
-          <ul class="option-list">
-            <li>
-              <label class="option">
-                <input
-                  type="radio"
-                  name="stage"
-                  value="mvp"
-                  required
-                />
-                <span>Idea / prototype / MVP stage</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="radio"
-                  name="stage"
-                  value="launched_stability"
-                />
-                <span>Launched, figuring out stability and scale</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="radio"
-                  name="stage"
-                  value="paying_slow_tech"
-                />
-                <span>Paying customers, tech issues slowing growth</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="radio"
-                  name="stage"
-                  value="growing_messy_inside"
-                />
-                <span>Growing well, systems messy / fragile inside</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="radio"
-                  name="stage"
-                  value="stable_review"
-                />
-                <span>Stable, want expert review of tech setup</span>
-              </label>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Light section: Q3 - Challenges (checkbox) -->
-    <section class="section light">
-      <div class="container">
-        <div class="form-block">
-          <!-- Q3: Challenges (multiple) -->
-          <h2 class="question-title">
+<div class="field-row">
+<div class="field">
+<label class="field-label" for="name">Your Name</label>
+<input data-q="1" id="name" name="name" required="" type="text"/>
+</div>
+<div class="field">
+<label class="field-label" for="email">Your Email</label>
+<input data-q="2" id="email" name="email" required="" type="email"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Light section: Q1 - Who are you -->
+<section class="section light">
+<div class="container">
+<div class="form-block">
+<!-- Q1: Role (filter) -->
+<h2 class="question-title">Who are you in your company?</h2>
+<ul class="option-list">
+<li>
+<label class="option">
+<input data-q="3" name="role" required="" type="radio" value="founder"/>
+<span>Founder / Co-founder of a tech or tech-enabled business</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="3" name="role" type="radio" value="cto"/>
+<span>CTO / Head of Engineering / Head of Technology</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="3" name="role" type="radio" value="techlead"/>
+<span>Tech Lead / Senior Developer responsible for major tech decisions</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="3" name="role" type="radio" value="nontechfounder"/>
+<span>Non-tech Founder handling tech vendors / agencies</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="3" name="role" type="radio" value="serviceprovider"/>
+<span>Service provider / agency owner building software for clients</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="3" name="role" type="radio" value="none"/>
+<span>None of the above – I’m just exploring / learning</span>
+</label>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Dark section: Q2 - Stage (now radio instead of dropdown) -->
+<section class="section dark">
+<div class="container">
+<div class="form-block">
+<!-- Q2: Stage -->
+<h2 class="question-title">Which of these best describes your current situation?</h2>
+<ul class="option-list">
+<li>
+<label class="option">
+<input data-q="4" name="stage" required="" type="radio" value="mvp"/>
+<span>Idea / prototype / MVP stage</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="4" name="stage" type="radio" value="launched_stability"/>
+<span>Launched, figuring out stability and scale</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="4" name="stage" type="radio" value="paying_slow_tech"/>
+<span>Paying customers, tech issues slowing growth</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="4" name="stage" type="radio" value="growing_messy_inside"/>
+<span>Growing well, systems messy / fragile inside</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="4" name="stage" type="radio" value="stable_review"/>
+<span>Stable, want expert review of tech setup</span>
+</label>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Light section: Q3 - Challenges (checkbox) -->
+<section class="section light">
+<div class="container">
+<div class="form-block">
+<!-- Q3: Challenges (multiple) -->
+<h2 class="question-title">
             What are the top tech challenges you’re facing right now? (Select all that apply)
           </h2>
-
-          <ul class="option-list">
-            <li>
-              <label class="option">
-                <input
-                  type="checkbox"
-                  name="challenges"
-                  value="bugs"
-                />
-                <span>Frequent bugs in production</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="checkbox"
-                  name="challenges"
-                  value="slow_releases"
-                />
-                <span>Slow development / release speed</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="checkbox"
-                  name="challenges"
-                  value="server_issues"
-                />
-                <span>Server issues – downtime / slowness</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="checkbox"
-                  name="challenges"
-                  value="messy_code"
-                />
-                <span>Messy codebase – hard to change</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="checkbox"
-                  name="challenges"
-                  value="dependency_one_dev"
-                />
-                <span>Over-dependence on one dev / agency</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="checkbox"
-                  name="challenges"
-                  value="no_monitoring"
-                />
-                <span>No proper monitoring / dashboards</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="checkbox"
-                  name="challenges"
-                  value="high_costs"
-                />
-                <span>High tech / cloud costs</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="checkbox"
-                  name="challenges"
-                  value="busy_but_stuck"
-                />
-                <span>Tech team busy, business still stuck</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="checkbox"
-                  name="challenges"
-                  value="no_docs"
-                />
-                <span>No clear documentation / specs</span>
-              </label>
-            </li>
-            <li>
-              <div class="field" style="margin-top:8px;">
-                <label class="field-label" for="challenges-other-text">
+<ul class="option-list">
+<li>
+<label class="option">
+<input data-q="5" name="challenges" type="checkbox" value="bugs"/>
+<span>Frequent bugs in production</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="5" name="challenges" type="checkbox" value="slow_releases"/>
+<span>Slow development / release speed</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="5" name="challenges" type="checkbox" value="server_issues"/>
+<span>Server issues – downtime / slowness</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="5" name="challenges" type="checkbox" value="messy_code"/>
+<span>Messy codebase – hard to change</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="5" name="challenges" type="checkbox" value="dependency_one_dev"/>
+<span>Over-dependence on one dev / agency</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="5" name="challenges" type="checkbox" value="no_monitoring"/>
+<span>No proper monitoring / dashboards</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="5" name="challenges" type="checkbox" value="high_costs"/>
+<span>High tech / cloud costs</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="5" name="challenges" type="checkbox" value="busy_but_stuck"/>
+<span>Tech team busy, business still stuck</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="5" name="challenges" type="checkbox" value="no_docs"/>
+<span>No clear documentation / specs</span>
+</label>
+</li>
+<li>
+<div class="field" style="margin-top:8px;">
+<label class="field-label" for="challenges-other-text">
                   If you have any other Tech Challenges other than the above list, please describe it here
                 </label>
-                <textarea
-                  id="challenges-other-text"
-                  name="challengesOther"
-                  rows="2"
-                  placeholder="Type your other tech challenges here"
-                ></textarea>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Dark section: Q4 - Where do you want the most help -->
-    <section class="section dark">
-      <div class="container">
-        <div class="form-block">
-          <!-- Q4: Where do you want the most help? (multiple) -->
-          <h2 class="question-title">
+<textarea data-q="5" id="challenges-other-text" name="challengesOther" placeholder="Type your other tech challenges here" rows="2"></textarea>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Dark section: Q4 - Where do you want the most help -->
+<section class="section dark">
+<div class="container">
+<div class="form-block">
+<!-- Q4: Where do you want the most help? (multiple) -->
+<h2 class="question-title">
             Where do you want the most help in this call? (Select all that apply)
           </h2>
-
-          <ul class="option-list">
-            <li>
-              <label class="option">
-                <input
-                  type="checkbox"
-                  name="helpAreas"
-                  value="root_cause"
-                />
-                <span>Finding the real root cause of our main tech problem</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="checkbox"
-                  name="helpAreas"
-                  value="action_plan"
-                />
-                <span>A clear, step-by-step action plan for the next 30–90 days</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="checkbox"
-                  name="helpAreas"
-                  value="fix_refactor_rebuild"
-                />
-                <span>Whether to fix, refactor, or rebuild parts of the system</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="checkbox"
-                  name="helpAreas"
-                  value="team_process"
-                />
-                <span>Structuring our team / vendors / processes better</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="checkbox"
-                  name="helpAreas"
-                  value="scale_without_burnout"
-                />
-                <span>Understanding how to scale without burning out</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="checkbox"
-                  name="helpAreas"
-                  value="reduce_risk"
-                />
-                <span>Reducing risk, downtime, and last-minute panic</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="checkbox"
-                  name="helpAreas"
-                  value="reduce_waste"
-                />
-                <span>Reducing waste / extra spend on tech and tools</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="checkbox"
-                  name="helpAreas"
-                  value="honest_review"
-                />
-                <span>I just need an honest expert review of our current setup</span>
-              </label>
-            </li>
-            <li>
-              <div class="field" style="margin-top:8px;">
-                <label class="field-label" for="help-areas-other-text">
+<ul class="option-list">
+<li>
+<label class="option">
+<input data-q="6" name="helpAreas" type="checkbox" value="root_cause"/>
+<span>Finding the real root cause of our main tech problem</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="6" name="helpAreas" type="checkbox" value="action_plan"/>
+<span>A clear, step-by-step action plan for the next 30–90 days</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="6" name="helpAreas" type="checkbox" value="fix_refactor_rebuild"/>
+<span>Whether to fix, refactor, or rebuild parts of the system</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="6" name="helpAreas" type="checkbox" value="team_process"/>
+<span>Structuring our team / vendors / processes better</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="6" name="helpAreas" type="checkbox" value="scale_without_burnout"/>
+<span>Understanding how to scale without burning out</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="6" name="helpAreas" type="checkbox" value="reduce_risk"/>
+<span>Reducing risk, downtime, and last-minute panic</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="6" name="helpAreas" type="checkbox" value="reduce_waste"/>
+<span>Reducing waste / extra spend on tech and tools</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="6" name="helpAreas" type="checkbox" value="honest_review"/>
+<span>I just need an honest expert review of our current setup</span>
+</label>
+</li>
+<li>
+<div class="field" style="margin-top:8px;">
+<label class="field-label" for="help-areas-other-text">
                   If you want help in any other areas, please type it here
                 </label>
-                <textarea
-                  id="help-areas-other-text"
-                  name="helpAreasOther"
-                  rows="2"
-                  placeholder="Type any other areas where you want help"
-                ></textarea>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Light section: Q5 - Urgency -->
-    <section class="section light">
-      <div class="container">
-        <div class="form-block">
-          <!-- Q5: Urgency (single) -->
-          <h2 class="question-title">How urgent is it for you to fix these tech issues?</h2>
-
-          <ul class="option-list">
-            <li>
-              <label class="option">
-                <input
-                  type="radio"
-                  name="urgency"
-                  value="very_urgent"
-                  required
-                />
-                <span>Very urgent – it’s already affecting customers / revenue</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="radio"
-                  name="urgency"
-                  value="important"
-                />
-                <span>Important, but not yet breaking anything major</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="radio"
-                  name="urgency"
-                  value="good_to_have"
-                />
-                <span>Good to have – we want to be proactive before things break</span>
-              </label>
-            </li>
-            <li>
-              <label class="option">
-                <input
-                  type="radio"
-                  name="urgency"
-                  value="exploring"
-                />
-                <span>I’m just exploring, not sure how urgent it is</span>
-              </label>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Dark section: Q6 - Why now + Submit -->
-    <section class="section dark">
-      <div class="container">
-        <div class="form-block">
-          <!-- Q6: Why now -->
-          <h2 class="question-title">
+<textarea data-q="6" id="help-areas-other-text" name="helpAreasOther" placeholder="Type any other areas where you want help" rows="2"></textarea>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Light section: Q5 - Urgency -->
+<section class="section light">
+<div class="container">
+<div class="form-block">
+<!-- Q5: Urgency (single) -->
+<h2 class="question-title">How urgent is it for you to fix these tech issues?</h2>
+<ul class="option-list">
+<li>
+<label class="option">
+<input data-q="7" name="urgency" required="" type="radio" value="very_urgent"/>
+<span>Very urgent – it’s already affecting customers / revenue</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="7" name="urgency" type="radio" value="important"/>
+<span>Important, but not yet breaking anything major</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="7" name="urgency" type="radio" value="good_to_have"/>
+<span>Good to have – we want to be proactive before things break</span>
+</label>
+</li>
+<li>
+<label class="option">
+<input data-q="7" name="urgency" type="radio" value="exploring"/>
+<span>I’m just exploring, not sure how urgent it is</span>
+</label>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Dark section: Q6 - Why now + Submit -->
+<section class="section dark">
+<div class="container">
+<div class="form-block">
+<!-- Q6: Why now -->
+<h2 class="question-title">
             Why do you feel you must take this Founders’ Tech Clarity Call right now?
           </h2>
-          <p class="helper-text">
+<p class="helper-text">
             What will change for you or your startup if you get the right plan in the next 30 days?
           </p>
-
-          <div class="field">
-            <textarea name="whyNow" required></textarea>
-          </div>
-
-          <div class="actions">
-            <button type="submit" class="primary-btn">
+<div class="field">
+<textarea data-q="8" name="whyNow" required=""></textarea>
+</div>
+<div class="actions">
+<button class="primary-btn" type="submit">
               Submit and Select the Time-slot
             </button>
-            <span class="required-note">
+<span class="required-note">
               * Please answer honestly – this helps us use your 30 minutes wisely.
             </span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </form>
-
-  <!-- Light footer -->
-  <footer class="section light footer-slim">
-    <div class="container">
-      <p class="footer-meta">
+</div>
+</div>
+</div>
+</section>
+</form>
+<!-- Light footer -->
+<footer class="section light footer-slim">
+<div class="container">
+<p class="footer-meta">
         Copyright © 2025 KreedaLoka Private Limited | All Rights Reserved.
       </p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</footer>
+<script>
     document.addEventListener('DOMContentLoaded', function () {
       var form = document.querySelector('form.precall-form');
       if (!form) return;
@@ -947,7 +806,8 @@ var url = form.getAttribute('action') || 'https://script.google.com/macros/s/AKf
           }
         });
 
-        if (roleValue === 'none') {
+                try { sessionStorage.setItem('ss_form_submitted','1'); } catch(e) {}
+if (roleValue === 'none') {
           window.location.href = 'wrong-audience.html';
         } else {
           window.location.href = 'https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7';
@@ -974,6 +834,5 @@ var url = form.getAttribute('action') || 'https://script.google.com/macros/s/AKf
       }, true);
     });
   </script>
-
 </body>
 </html>
