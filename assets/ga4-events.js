@@ -2,6 +2,10 @@
 (function () {
   'use strict';
 
+  // Singleton guard: prevent double-binding if script is included twice
+  if (window.__ss_ga4_events_initialized) { return; }
+  window.__ss_ga4_events_initialized = true;
+
   // Guard: gtag must exist (it will if the GA4 base tag is installed)
   function hasGtag() {
     return typeof window.gtag === 'function';
@@ -60,13 +64,50 @@
   window.addEventListener('pagehide', sendPageTime, { capture: true });
 
   // ---------- CTA tracking ----------
+  function slugify(txt) {
+    try {
+      return String(txt || '')
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '')
+        .slice(0, 80);
+    } catch (e) {
+      return 'cta';
+    }
+  }
+
+  function inferCtaPosition(el) {
+    try {
+      if (!el || !el.closest) return 'unknown';
+      if (el.closest('header') || el.closest('.header') || el.closest('.top')) return 'top';
+      if (el.closest('.hero') || el.closest('#hero')) return 'hero';
+      if (el.closest('.bottom-floating') || el.closest('.floating') || el.closest('.sticky')) return 'floating';
+      if (el.closest('footer') || el.closest('.footer')) return 'footer';
+      return 'body';
+    } catch (e) {
+      return 'unknown';
+    }
+  }
+
   document.addEventListener('click', function (e) {
-    var el = e.target && e.target.closest ? e.target.closest('[data-cta]') : null;
+    // Primary: explicitly tagged CTAs
+    // Fallback: any link/button that looks like a CTA (class "cta" or links to the form page)
+    var el = e.target && e.target.closest ? e.target.closest('[data-cta], a.cta, a[href*="founders_tech_clarity_form.html"], a[href*="tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7"], button.cta') : null;
     if (!el) return;
 
-    var cta = el.getAttribute('data-cta') || 'unknown';
-    var ctaPos = el.getAttribute('data-cta_position') || 'unknown';
-    var ctaIndex = el.getAttribute('data-cta_index') || '';
+    var cta = el.getAttribute('data-cta');
+    var ctaPos = el.getAttribute('data-cta_position') || el.getAttribute('data-cta-position');
+    var ctaIndex = el.getAttribute('data-cta_index') || el.getAttribute('data-cta-index') || '';
+
+    // Auto-fill missing labels so we never miss tracking (future-proof)
+    if (!cta) {
+      var txt = (el.innerText || el.textContent || '').trim();
+      cta = 'auto_' + (txt ? slugify(txt) : 'cta');
+    }
+    if (!ctaPos) {
+      ctaPos = inferCtaPosition(el);
+    }
 
     // store for later attribution (form + thank-you)
     try {

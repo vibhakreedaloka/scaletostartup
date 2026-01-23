@@ -1,50 +1,681 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Registration Confirmed — Scale Startup</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&amp;family=Montserrat:wght@500;700;800&amp;family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet"/><link href="styles.css" rel="stylesheet"/>
-<style>
-@media (max-width: 640px) {
-  .cta-row a.cta.big,
-  p a.cta.big {
-    display: inline-block;
-    margin-bottom: 10px;
-  }
-}
-</style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '800875292318852');
-fbq('track', 'PageView');
-fbq('track', 'Lead');
-</script>
-<noscript><img height="1" src="https://www.facebook.com/tr?id=800875292318852&amp;ev=PageView&amp;noscript=1" style="display:none" width="1"/></noscript>
-<!-- End Meta Pixel Code -->
-<!-- Google tag (gtag.js) -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-75FJPRCDKE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-75FJPRCDKE');
-</script>
-<script defer="" src="assets/ga4-events.js"></script>
-</head><body data-page="thankyou"><div class="header"><div class="wrap"><a href="index.html"><img alt="Scale Startup" class="logo" src="assets/S Horizontal Logo with BG Shrinked.png"/></a></div></div><section class="section dark"><div class="container center"><div class="h2" style="font-size:42px;"><span display:inline-block;\"="" line-height:1.15;="" style='\"font-size:42px;'>Your 1-on-1 Call with Mr.Santhosh is confirmed! 🎉</span></div>
-<p style="font-size:24px;">We’ve emailed your confirmation and Zoom link details.</p>
-<p style="text-align:center;"><a class="cta big whats" href="https://chat.whatsapp.com/Bb75eN41YTI2x3jjl6Rqg4">Join WhatsApp Group</a></p>
-<p></p>
-<div style="text-align:center;margin-top:16px;">
-<a href="privacy-policy.html" style="color:#93c5fd;">Privacy Policy</a> •
-  <a href="refund-policy.html" style="color:#93c5fd;">Refund Policy</a> •
-  <a href="terms.html" style="color:#93c5fd;">Terms &amp; Conditions</a>
-</div></div>
-<p style="font-size:24px;"> </p>
-</section><div class="copyright" style="text-align:center;padding:12px 0;font-size:12px;opacity:.8;">
-  Copyright © 2025 KreedaLoka Private Limited | All Rights Reserved.
-</div>
-</body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Registration Confirmed — Scale Startup</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Montserrat:wght@500;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="assets/favicon-32x32.png" rel="icon"/>
+
+  <style>
+    /* Keep tiny mobile CTA spacing */
+    @media (max-width: 640px) {
+      .cta-row a.cta.big,
+      p a.cta.big {
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+    }
+
+    /* Bring in the same form styles used in founders_tech_clarity_form.html */
+    body.form-page {
+      margin: 0;
+      background: var(--light-bg);
+      color: var(--dark-text);
+      font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .form-page .section {
+      padding: 48px 20px;
+    }
+
+    .header {
+      background: #F8FAFC;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .header .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .header img.logo {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+
+    .precall-form .form-block {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .precall-form .form-title {
+      font-family: Inter, system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 1.2;
+      margin: 0 0 8px;
+      text-align: left;
+    }
+
+    .precall-form .form-subtitle {
+      font-family: Roboto, system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0 0 24px;
+      color: #475569;
+    }
+
+    .precall-form .micro-note {
+      font-family: Roboto, system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      margin: 0 0 14px;
+      color: #0F172A;
+    }
+
+    .precall-form .micro-note strong {
+      font-weight: 700;
+    }
+
+    .precall-form .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .precall-form .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .precall-form label.field-label {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .precall-form input[type="text"],
+    .precall-form input[type="email"],
+    .precall-form textarea {
+      width: 100%;
+      max-width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      font-family: Roboto, system-ui, sans-serif;
+      font-size: 14px;
+      box-sizing: border-box;
+      background: rgba(248, 250, 252, 0.95);
+    }
+
+    .precall-form textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .section.dark .precall-form input[type="text"],
+    .section.dark .precall-form input[type="email"],
+    .section.dark .precall-form textarea {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: rgba(148, 163, 184, 0.8);
+      color: var(--light-text);
+    }
+
+
+    .precall-form .question-title {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 12px;
+    }
+
+    .precall-form .helper-text {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+
+    .precall-form .option-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .precall-form .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 14px;
+      line-height: 1.5;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+
+    .section.light .precall-form .option {
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    /* Dark sections: keep same as background, only light border */
+    .section.dark .precall-form .option {
+      background: transparent;
+      border-color: rgba(148, 163, 184, 0.55);
+      color: var(--light-text);
+    }
+
+.precall-form .option input {
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .precall-form .option span {
+      display: block;
+    }
+
+    .precall-form .actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .precall-form .primary-btn {
+      font-family: Montserrat, system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 12px 28px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      background: var(--cta-bg);
+      color: var(--light-text);
+      box-shadow: 0 0 16px rgba(37, 99, 235, 0.5);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+    }
+
+    .precall-form .primary-btn:hover,
+    .precall-form .primary-btn:focus {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+      box-shadow: 0 0 26px rgba(37, 99, 235, 0.9);
+      outline: none;
+    }
+
+    .precall-form .secondary-note {
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    .footer-slim {
+      padding: 18px 16px 10px;
+    }
+
+    .footer-links {
+      text-align: center;
+      font-size: 12px;
+      margin: 0 0 8px;
+      color: #475569;
+    }
+
+    .footer-links a {
+      color: #2563EB;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-meta {
+      text-align: center;
+      font-size: 10px;
+      color: #64748b;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .precall-form .field-row {
+        grid-template-columns: 1fr;
+      }
+      .precall-form .form-title {
+        font-size: 26px;
+      }
+      .header img.logo {
+        height: 46px;
+      }
+    }
+
+    /* Custom validation error message (red background instead of default tooltip) */
+    .field-error {
+      margin-top: 6px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: #DC2626; /* red */
+      color: #ffffff;
+      font-size: 12px;
+      line-height: 1.4;
+      display: inline-block;
+    }
+
+    .section.dark .field-error {
+      background: #B91C1C;
+    }
+  </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '800875292318852');
+  fbq('track', 'PageView');
+  fbq('track', 'Lead');
+  </script>
+  <noscript><img height="1" src="https://www.facebook.com/tr?id=800875292318852&ev=PageView&noscript=1" style="display:none" width="1"/></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-75FJPRCDKE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-75FJPRCDKE');
+  </script>
+  <script defer src="assets/ga4-events.js"></script>
+</head>
+
+<body class="home form-page" data-page="thankyou">
+
+  <div class="header">
+    <div class="wrap">
+      <a href="index.html">
+        <img alt="Scale Startup" class="logo" src="assets/S Horizontal Logo with BG Shrinked.png"/>
+      </a>
+    </div>
+  </div>
+
+  <!-- Confirmation section (keep headline exactly as-is) -->
+  <section class="section dark">
+    <div class="container center">
+      <div class="h2" style="font-size:42px;">
+        <span style="font-size:42px; line-height:1.15;">Your 1-on-1 Call with Mr.Santhosh is confirmed! 🎉</span>
+      </div>
+      <p style="font-size:24px;">We’ve emailed your confirmation and Zoom link details.</p>
+    </div>
+  </section>
+
+  <form action="https://script.google.com/macros/s/AKfycbybc-52vYz9GFR7EUtH3KByNYTOZ55YlzTNjuM7J-UBYzc3353QpVe1i31EY4XgRV5X/exec" class="precall-form" data-form-id="founders_tech_clarity" id="leadForm" method="post">
+    <!-- Light themed section: quick favor + title + name/email -->
+    <section class="section light">
+      <div class="container">
+        <div class="form-block">
+          <p class="micro-note"><strong>Quick favor:</strong> Answer these 6 questions (2 minutes). I’ll use this to prep a sharper plan for you.</p>
+
+          <h1 class="form-title">Founders’ Tech Clarity Call – Pre-Call Form</h1>
+          <p class="form-subtitle">Please fill this so the 30-minute call is fully customised for you.</p>
+
+          <div class="field-row">
+            <div class="field">
+              <label class="field-label" for="name">Your Name</label>
+              <input data-q="1" id="name" name="name" type="text" autocomplete="name" required="" />
+            </div>
+            <div class="field">
+              <label class="field-label" for="email">Your Email</label>
+              <input data-q="2" id="email" name="email" type="email" autocomplete="email" required="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Q1: Role -->
+    <section class="section dark">
+      <div class="container">
+        <div class="form-block">
+          <h2 class="question-title">Who are you in your company?</h2>
+          <ul class="option-list">
+            <li><label class="option"><input data-q="3" name="role" type="radio" value="founder" required=""/><span>Founder / Co-founder of a tech or tech-enabled business</span></label></li>
+            <li><label class="option"><input data-q="3" name="role" type="radio" value="cto"/><span>CTO / Head of Engineering / Head of Technology</span></label></li>
+            <li><label class="option"><input data-q="3" name="role" type="radio" value="techlead"/><span>Tech Lead / Senior Developer responsible for major tech decisions</span></label></li>
+            <li><label class="option"><input data-q="3" name="role" type="radio" value="nontechfounder"/><span>Non-tech Founder handling tech vendors / agencies</span></label></li>
+            <li><label class="option"><input data-q="3" name="role" type="radio" value="serviceprovider"/><span>Service provider / agency owner building software for clients</span></label></li>
+            <li><label class="option"><input data-q="3" name="role" type="radio" value="none"/><span>None of the above – I’m just exploring / learning</span></label></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Q2: Stage -->
+    <section class="section light">
+      <div class="container">
+        <div class="form-block">
+          <h2 class="question-title">Which of these best describes your current situation?</h2>
+          <ul class="option-list">
+            <li><label class="option"><input data-q="4" name="stage" type="radio" value="mvp" required=""/><span>Idea / prototype / MVP stage</span></label></li>
+            <li><label class="option"><input data-q="4" name="stage" type="radio" value="launched_stability"/><span>Launched, figuring out stability and scale</span></label></li>
+            <li><label class="option"><input data-q="4" name="stage" type="radio" value="paying_slow_tech"/><span>Paying customers, tech issues slowing growth</span></label></li>
+            <li><label class="option"><input data-q="4" name="stage" type="radio" value="growing_messy_inside"/><span>Growing well, systems messy / fragile inside</span></label></li>
+            <li><label class="option"><input data-q="4" name="stage" type="radio" value="stable_review"/><span>Stable, want expert review of tech setup</span></label></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Q3: Challenges -->
+    <section class="section dark">
+      <div class="container">
+        <div class="form-block">
+          <h2 class="question-title">What are the top tech challenges you’re facing right now? (Select all that apply)</h2>
+          <ul class="option-list">
+            <li><label class="option"><input data-q="5" name="challenges" type="checkbox" value="bugs"/><span>Frequent bugs in production</span></label></li>
+            <li><label class="option"><input data-q="5" name="challenges" type="checkbox" value="slow_releases"/><span>Slow development / release speed</span></label></li>
+            <li><label class="option"><input data-q="5" name="challenges" type="checkbox" value="server_issues"/><span>Server issues – downtime / slowness</span></label></li>
+            <li><label class="option"><input data-q="5" name="challenges" type="checkbox" value="messy_code"/><span>Messy codebase – hard to change</span></label></li>
+            <li><label class="option"><input data-q="5" name="challenges" type="checkbox" value="dependency_one_dev"/><span>Over-dependence on one dev / agency</span></label></li>
+            <li><label class="option"><input data-q="5" name="challenges" type="checkbox" value="no_monitoring"/><span>No proper monitoring / dashboards</span></label></li>
+            <li><label class="option"><input data-q="5" name="challenges" type="checkbox" value="high_costs"/><span>High tech / cloud costs</span></label></li>
+            <li><label class="option"><input data-q="5" name="challenges" type="checkbox" value="busy_but_stuck"/><span>Tech team busy, business still stuck</span></label></li>
+            <li><label class="option"><input data-q="5" name="challenges" type="checkbox" value="no_docs"/><span>No clear documentation / specs</span></label></li>
+            <li>
+              <div class="field" style="margin-top:8px;">
+                <label class="field-label" for="challenges-other-text">If you have any other Tech Challenges other than the above list, please describe it here</label>
+                <textarea data-q="5" id="challenges-other-text" name="challengesOther" placeholder="Type your other tech challenges here" rows="2"></textarea>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Q4: Help areas -->
+    <section class="section light">
+      <div class="container">
+        <div class="form-block">
+          <h2 class="question-title">Where do you want the most help in this call? (Select all that apply)</h2>
+          <ul class="option-list">
+            <li><label class="option"><input data-q="6" name="helpAreas" type="checkbox" value="root_cause"/><span>Finding the real root cause of our main tech problem</span></label></li>
+            <li><label class="option"><input data-q="6" name="helpAreas" type="checkbox" value="action_plan"/><span>A clear, step-by-step action plan for the next 30–90 days</span></label></li>
+            <li><label class="option"><input data-q="6" name="helpAreas" type="checkbox" value="fix_refactor_rebuild"/><span>Whether to fix, refactor, or rebuild parts of the system</span></label></li>
+            <li><label class="option"><input data-q="6" name="helpAreas" type="checkbox" value="team_process"/><span>Structuring our team / vendors / processes better</span></label></li>
+            <li><label class="option"><input data-q="6" name="helpAreas" type="checkbox" value="scale_without_burnout"/><span>Understanding how to scale without burning out</span></label></li>
+            <li><label class="option"><input data-q="6" name="helpAreas" type="checkbox" value="reduce_risk"/><span>Reducing risk, downtime, and last-minute panic</span></label></li>
+            <li><label class="option"><input data-q="6" name="helpAreas" type="checkbox" value="reduce_waste"/><span>Reducing waste / extra spend on tech and tools</span></label></li>
+            <li><label class="option"><input data-q="6" name="helpAreas" type="checkbox" value="honest_review"/><span>I just need an honest expert review of our current setup</span></label></li>
+            <li>
+              <div class="field" style="margin-top:8px;">
+                <label class="field-label" for="help-areas-other-text">If you want help in any other areas, please type it here</label>
+                <textarea data-q="6" id="help-areas-other-text" name="helpAreasOther" placeholder="Type any other areas where you want help" rows="2"></textarea>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Q5: Urgency -->
+    <section class="section dark">
+      <div class="container">
+        <div class="form-block">
+          <h2 class="question-title">How urgent is it for you to fix these tech issues?</h2>
+          <ul class="option-list">
+            <li><label class="option"><input data-q="7" name="urgency" type="radio" value="very_urgent" required=""/><span>Very urgent – it’s already affecting customers / revenue</span></label></li>
+            <li><label class="option"><input data-q="7" name="urgency" type="radio" value="important"/><span>Important, but not yet breaking anything major</span></label></li>
+            <li><label class="option"><input data-q="7" name="urgency" type="radio" value="good_to_have"/><span>Good to have – we want to be proactive before things break</span></label></li>
+            <li><label class="option"><input data-q="7" name="urgency" type="radio" value="exploring"/><span>I’m just exploring, not sure how urgent it is</span></label></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Q6: Why now + Submit -->
+    <section class="section light">
+      <div class="container">
+        <div class="form-block">
+          <h2 class="question-title">Why do you feel you must take this Founders’ Tech Clarity Call right now?</h2>
+          <p class="helper-text">What will change for you or your startup if you get the right plan in the next 30 days?</p>
+          <div class="field">
+            <textarea data-q="8" name="whyNow" placeholder="Type here..." required=""></textarea>
+          </div>
+
+          <div class="actions">
+            <button class="primary-btn" id="submitPrecall" type="submit">Submit and Join the WhatsApp Group</button>
+            <span class="secondary-note">This helps us prep better for your call.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </form>
+
+  <!-- Footer with policy links at the end -->
+  <footer class="section light footer-slim">
+    <div class="container">
+      <p class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a> •
+        <a href="refund-policy.html">Refund Policy</a> •
+        <a href="terms.html">Terms &amp; Conditions</a>
+      </p>
+      <p class="footer-meta">Copyright © 2025 KreedaLoka Private Limited | All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  
+  <script>
+    (function () {
+      var form = document.getElementById('leadForm');
+      if (!form) return;
+
+      // Disable native browser validation bubbles so we can show our own
+      form.setAttribute('novalidate', 'novalidate');
+
+      var submitBtn = document.getElementById('submitPrecall');
+
+      function getContainer(el) {
+        if (!el) return null;
+        return el.closest('.field') || el.closest('.option-list') || el.parentElement || el;
+      }
+
+      function showError(el, message) {
+        var container = getContainer(el);
+        if (!container) return;
+        var existing = container.querySelector('.field-error');
+        if (existing) {
+          existing.textContent = message;
+          return;
+        }
+        var div = document.createElement('div');
+        div.className = 'field-error';
+        div.textContent = message;
+        container.appendChild(div);
+      }
+
+      function clearError(el) {
+        var container = getContainer(el);
+        if (!container) return;
+        var err = container.querySelector('.field-error');
+        if (err) err.parentNode.removeChild(err);
+      }
+
+      function buildPayload(fd) {
+        var payload = {};
+        fd.forEach(function (value, key) {
+          if (payload[key] !== undefined) {
+            if (!Array.isArray(payload[key])) payload[key] = [payload[key]];
+            payload[key].push(value);
+          } else {
+            payload[key] = value;
+          }
+        });
+
+        function mergeOtherIntoField(fieldKey, otherKey) {
+          var otherText = payload[otherKey];
+          if (!otherText || typeof otherText !== 'string') return;
+          var trimmed = otherText.trim();
+          if (!trimmed) return;
+
+          var existing = payload[fieldKey];
+          if (existing === undefined) {
+            payload[fieldKey] = trimmed;
+          } else if (Array.isArray(existing)) {
+            existing.push(trimmed);
+            payload[fieldKey] = existing;
+          } else {
+            payload[fieldKey] = [existing, trimmed];
+          }
+        }
+
+        mergeOtherIntoField('challenges', 'challengesOther');
+        mergeOtherIntoField('helpAreas', 'helpAreasOther');
+
+        return payload;
+      }
+
+      function sendPayload(payload) {
+        var url = form.getAttribute('action');
+        try {
+          if (navigator.sendBeacon) {
+            var blob = new Blob([JSON.stringify(payload)], { type: 'text/plain;charset=UTF-8' });
+            navigator.sendBeacon(url, blob);
+          } else {
+            fetch(url, {
+              method: 'POST',
+              headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+              body: JSON.stringify(payload),
+              keepalive: true
+            });
+          }
+        } catch (err) {
+          if (console && console.error) console.error('Logging error', err);
+        }
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        Array.prototype.slice.call(form.querySelectorAll('.field-error')).forEach(function (node) {
+          if (node && node.parentNode) node.parentNode.removeChild(node);
+        });
+
+        var elements = Array.prototype.slice.call(form.elements || []);
+        var firstInvalid = null;
+        var processedGroups = {};
+
+        elements.forEach(function (el) {
+          if (!el || !el.willValidate || !el.name) return;
+          if (el.disabled || el.type === 'hidden') return;
+
+          var type = (el.type || '').toLowerCase();
+
+          if (type === 'radio' || type === 'checkbox') {
+            if (processedGroups[el.name]) return;
+            processedGroups[el.name] = true;
+
+            var group = form.querySelectorAll('[name="' + el.name + '"]');
+            var isRequired = false;
+            var isChecked = false;
+
+            Array.prototype.slice.call(group).forEach(function (g) {
+              if (g.required) isRequired = true;
+              if (g.checked) isChecked = true;
+            });
+
+            if (el.name !== 'challenges' && el.name !== 'helpAreas') {
+              if (isRequired && !isChecked) {
+                if (!firstInvalid) firstInvalid = el;
+                var msg = (type === 'radio') ? 'Please select one option' : 'Please select at least one option';
+                showError(el, msg);
+              }
+            }
+          } else {
+            if (!el.checkValidity()) {
+              if (!firstInvalid) firstInvalid = el;
+              var msg2 = el.validationMessage || 'Fill out this field';
+              showError(el, msg2);
+            }
+          }
+        });
+
+        var challengeGroup = form.querySelectorAll('input[name="challenges"]');
+        var anyChallengeChecked = false;
+        Array.prototype.slice.call(challengeGroup).forEach(function (g) {
+          if (g.checked) anyChallengeChecked = true;
+        });
+        var challengesOtherText = form.querySelector('textarea[name="challengesOther"]');
+        var challengesOtherFilled = challengesOtherText && challengesOtherText.value && challengesOtherText.value.trim() !== '';
+
+        if (!anyChallengeChecked && !challengesOtherFilled) {
+          var anchor = challengesOtherText || challengeGroup[0];
+          if (!firstInvalid) firstInvalid = anchor;
+          showError(anchor, 'Please select at least one option or type your other Tech Challenges');
+        }
+
+        var helpGroup = form.querySelectorAll('input[name="helpAreas"]');
+        var anyHelpChecked = false;
+        Array.prototype.slice.call(helpGroup).forEach(function (g) {
+          if (g.checked) anyHelpChecked = true;
+        });
+        var helpOtherText = form.querySelector('textarea[name="helpAreasOther"]');
+        var helpOtherFilled = helpOtherText && helpOtherText.value && helpOtherText.value.trim() !== '';
+
+        if (!anyHelpChecked && !helpOtherFilled) {
+          var anchor2 = helpOtherText || helpGroup[0];
+          if (!firstInvalid) firstInvalid = anchor2;
+          showError(anchor2, 'Please select at least one option or type the other areas where you want help');
+        }
+
+        if (firstInvalid) {
+          firstInvalid.focus();
+          return;
+        }
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Submitting...';
+        }
+
+        var fd = new FormData(form);
+        var payload = buildPayload(fd);
+
+        sendPayload(payload);
+
+        try { sessionStorage.setItem('ss_form_submitted', '1'); } catch (e2) {}
+
+        window.location.href = 'https://chat.whatsapp.com/Bb75eN41YTI2x3jjl6Rqg4';
+      });
+
+      form.addEventListener('input', function (e) {
+        var el = e.target;
+        if (!el || !el.willValidate) return;
+
+        var type = (el.type || '').toLowerCase();
+        if (type === 'radio' || type === 'checkbox') {
+          var group = form.querySelectorAll('[name="' + el.name + '"]');
+          var isChecked = Array.prototype.some.call(group, function (g) { return g.checked; });
+          if (isChecked) clearError(el);
+        } else {
+          if (el.checkValidity()) clearError(el);
+        }
+      }, true);
+    })();
+  </script>
+
+</body>

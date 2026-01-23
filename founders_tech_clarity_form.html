@@ -583,7 +583,7 @@
 </div>
 <div class="actions">
 <button class="primary-btn" type="submit">
-              Submit and Select the Time-slot
+              Submit and Join the WhatsApp Group
             </button>
 <span class="required-note">
               * Please answer honestly – this helps us use your 30 minutes wisely.
@@ -797,21 +797,10 @@ var url = form.getAttribute('action') || 'https://script.google.com/macros/s/AKf
           }
         }
 
-        // Decide where to send the user (do not wait for Apps Script response)
-        var roleValue = '';
-        var roleNodes = form.querySelectorAll('input[name="role"]');
-        Array.prototype.slice.call(roleNodes).forEach(function (node) {
-          if (node.checked) {
-            roleValue = node.value || '';
-          }
-        });
-
-                try { sessionStorage.setItem('ss_form_submitted','1'); } catch(e) {}
-if (roleValue === 'none') {
-          window.location.href = 'wrong-audience.html';
-        } else {
-          window.location.href = 'https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7';
-        }
+        // Redirect immediately (do not wait for Apps Script response)
+        // Eligibility check removed: everyone who submits valid info can proceed.
+        try { sessionStorage.setItem('ss_form_submitted','1'); } catch(e) {}
+        window.location.href = 'https://chat.whatsapp.com/Bb75eN41YTI2x3jjl6Rqg4';
       });
 // Clear error once the field becomes valid
       form.addEventListener('input', function (e) {
