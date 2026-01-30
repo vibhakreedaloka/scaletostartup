@@ -234,8 +234,8 @@ fbq('track', 'PageView');
   .bottom-floating .bb-line2 { font-weight: 600; font-size: 19px; line-height: 1.2; opacity: 0.95; }
   @media (max-width: 768px) {
     .bottom-floating .msg { padding: 9px 10px; border-radius: 11px; }
-    .bottom-floating .bb-line1 { font-size: 21px; }
-    .bottom-floating .bb-line2 { font-size: 18px; }
+    .bottom-floating .bb-line1 { font-size: 14px; }
+    .bottom-floating .bb-line2 { font-size: 11px; }
   }
 </style>
 
@@ -488,5 +488,38 @@ fbq('track', 'PageView');
 })();
 </script>
 
+
+
+<script>
+(function(){
+  function ready(fn){ if(document.readyState !== 'loading'){ fn(); } else { document.addEventListener('DOMContentLoaded', fn); } }
+
+  ready(function(){
+    var mq = window.matchMedia('(max-width: 768px)');
+    var headerCta = document.querySelector('.header a.cta');
+    var bottomCta = document.querySelector('.bottom-floating a.cta');
+
+    [headerCta, bottomCta].forEach(function(el){
+      if(el && !el.dataset.desktopText){
+        el.dataset.desktopText = (el.textContent || '').trim();
+      }
+    });
+
+    function apply(){
+      var isMobile = mq.matches;
+      if(headerCta){
+        headerCta.textContent = isMobile ? 'Book for FREE' : headerCta.dataset.desktopText;
+      }
+      if(bottomCta){
+        bottomCta.textContent = isMobile ? 'Book for FREE' : bottomCta.dataset.desktopText;
+      }
+    }
+
+    apply();
+    if(mq.addEventListener){ mq.addEventListener('change', apply); }
+    else if(mq.addListener){ mq.addListener(apply); }
+  });
+})();
+</script>
 
 </body></html>
