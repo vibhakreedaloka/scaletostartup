@@ -123,60 +123,134 @@ fbq('track', 'PageView');
 <script defer="" src="assets/ga4-events.js"></script>
 <!-- CTA overrides (v77) -->
 <style id="cta-overrides">
-  /* Make CTAs look like real buttons + enforce requested colors */
+/* CTA glossy pill style (match reference button) */
   a.cta, button.cta, .cta-button, .cta-btn, a[class*="cta"], button[class*="cta"] {
-    background: #00FF00 !important;
-    color: #0B1220 !important;
-    border: 2px solid #00FF00 !important;
-    border-radius: 14px !important;
-    padding: 14px 20px !important;
+    position: relative !important;
+    overflow: hidden !important;
+
+    background-color: #0050fe !important;
+    background-image:
+      linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 35%, rgba(0,0,0,0.20) 100%) !important;
+
+    color: #F8FAFC !important;
+    border: 2px solid #F8FAFC !important;
+    border-radius: 999px !important;
+
+    padding: 16px 28px !important;
+    min-height: 56px !important;
+
     text-decoration: none !important;
     font-weight: 800 !important;
+    letter-spacing: 0.2px;
+
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 8px !important;
-    line-height: 1.2 !important;
+    gap: 10px !important;
+
+    line-height: 1.15 !important;
     cursor: pointer !important;
     -webkit-tap-highlight-color: transparent;
-    box-shadow: 0 0 0 3px rgba(0,255,0,0.25), 0 12px 28px rgba(0,255,0,0.40) !important;
-    transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+
+    /* shadow + glow (same hue as button) */
+    box-shadow:
+      0 14px 30px rgba(0,0,0,0.22),
+      0 0 22px rgba(0,80,254,0.55),
+      inset 0 2px 4px rgba(255,255,255,0.28),
+      inset 0 -10px 18px rgba(0,0,0,0.10) !important;
+
+    transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+  }
+
+  /* glossy top highlight band */
+  a.cta::before, button.cta::before, .cta-button::before, .cta-btn::before,
+  a[class*="cta"]::before, button[class*="cta"]::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 6px;
+    height: 45%;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.04) 100%);
+    opacity: 0.55;
+    pointer-events: none;
+  }
+
+  /* Ensure text sits above highlight */
+  a.cta > *, button.cta > *, .cta-button > *, .cta-btn > *,
+  a[class*="cta"] > *, button[class*="cta"] > * {
+    position: relative;
+    z-index: 1;
   }
 
   /* Glow color enforcement */
   .glow, .glow.big, .cta.glow, a.cta.glow {
-    box-shadow: 0 0 0 3px rgba(0,255,0,0.25), 0 12px 28px rgba(0,255,0,0.40) !important;
+    box-shadow:
+      0 14px 30px rgba(0,0,0,0.22),
+      0 0 22px rgba(0,80,254,0.55),
+      inset 0 2px 4px rgba(255,255,255,0.28),
+      inset 0 -10px 18px rgba(0,0,0,0.10) !important;
   }
 
   a.cta:hover, button.cta:hover, a[class*="cta"]:hover, button[class*="cta"]:hover {
     transform: translateY(-1px);
-    filter: brightness(1.02);
-    box-shadow: 0 0 0 4px rgba(0,255,0,0.35), 0 14px 32px rgba(0,255,0,0.50) !important;
+    filter: brightness(1.04);
+    box-shadow:
+      0 16px 34px rgba(0,0,0,0.26),
+      0 0 28px rgba(0,80,254,0.70),
+      inset 0 2px 4px rgba(255,255,255,0.30),
+      inset 0 -10px 18px rgba(0,0,0,0.12) !important;
   }
 
   a.cta:active, button.cta:active, a[class*="cta"]:active, button[class*="cta"]:active {
     transform: translateY(0px);
-    box-shadow: 0 0 0 2px rgba(0,255,0,0.22), 0 8px 18px rgba(0,255,0,0.34) !important;
+    filter: brightness(0.99);
+    box-shadow:
+      0 10px 22px rgba(0,0,0,0.20),
+      0 0 18px rgba(0,80,254,0.55),
+      inset 0 1px 3px rgba(255,255,255,0.22),
+      inset 0 -8px 14px rgba(0,0,0,0.14) !important;
   }
 
   a.cta:focus-visible, button.cta:focus-visible, a[class*="cta"]:focus-visible, button[class*="cta"]:focus-visible {
     outline: none !important;
-    box-shadow: 0 0 0 5px rgba(0,255,0,0.45), 0 14px 32px rgba(0,255,0,0.50) !important;
+    box-shadow:
+      0 0 0 4px rgba(248,250,252,0.75),
+      0 0 0 8px rgba(0,80,254,0.45),
+      0 16px 34px rgba(0,0,0,0.26) !important;
   }
 </style>
+
+<!-- Bottom bar urgency (v88) -->
+<style id="bottom-bar-urgency">
+  /* Force bottom bar to red, regardless of home light override */
+  .bottom-floating { background: #F8FAFC !important; border-top: 1px solid rgba(11,18,32,0.12) !important; }
+  .bottom-floating { cursor: pointer; }
+  /* Only the text pill is red */
+  .bottom-floating .msg { background: #DC2626 !important; color: #F8FAFC !important; display: inline-flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 12px; }
+  .bottom-floating .msg, .bottom-floating .msg * { color: #F8FAFC !important; }
+  .bottom-floating .bb-line1 { font-weight: 800; font-size: 23px; line-height: 1.1; }
+  .bottom-floating .bb-line2 { font-weight: 600; font-size: 19px; line-height: 1.2; opacity: 0.95; }
+  @media (max-width: 768px) {
+    .bottom-floating .msg { padding: 9px 10px; border-radius: 11px; }
+    .bottom-floating .bb-line1 { font-size: 21px; }
+    .bottom-floating .bb-line2 { font-size: 18px; }
+  }
+</style>
+
 </head><body class="home" data-page="landing"><div class="header"><div class="wrap"><a href="index.html"><img alt="Scale Startup" class="logo" src="assets/S Horizontal Logo with BG Shrinked.png"/></a><a class="cta" data-cta="lp_book_1_on_1_call_for_free_01" data-cta_index="1" data-cta_position="top" href="https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7">Book Your FREE Clarity Call NOW!!</a></div></div>
 <section class="section dark hero" style="padding:72px 20px 8px 20px;">
 <div class="session-info container">
 <div class="hook">Founders’ Tech Clarity Call</div>
 <div class="sub" style="font-size: 90% !important;">Get your personalized, step-by-step action plan for your biggest startup tech hurdles—free, in just 30 minutes. Experience clarity, growth, and work-life balance.</div>
-<div class="h3" style="text-align:center;color:var(--yellow);text-shadow:0 0 12px rgba(255,255,0,.7);margin-top:8px;">Limited seats</div>
 <div class="ring" style="padding-bottom:40px;">
 <div class="why">
-        Walk away with a 30–90 day action plan to ship faster, reduce fires, and cut cloud waste.
-	        <span class="last" style="font-size: 90% !important;">Before your competitors ship the next release.</span>
+        <strong>Walk away with a 30–90 day action plan to ship faster, reduce fires, and cut cloud waste.</strong>
+	        <span class="last" style="color:#F8FAFC !important; font-weight:400 !important; text-shadow:none !important; font-size:25px !important;">Before your competitors ship the next release.</span>
 </div>
 <div class="attached-btn" style="margin-top:32px;"><a class="cta glow big" data-cta="lp_book_my_free_founders_tech_clarity_call_02" data-cta_index="2" data-cta_position="hero" href="https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7">Book Your FREE Clarity Call NOW!!</a></div>
-<div class="microcopy" style="text-align:center;margin-top:10px;color:#E5E7EB;font-size:14px;opacity:0.9;">Takes 2 minutes → fill form → pick a slot.</div>
+<div class="microcopy" style="text-align:center;margin-top:10px;color:#E5E7EB;font-size:14px;opacity:0.9;">Takes 2 minutes → pick a slot → fill form.</div>
 </div>
 <div class="center" style="margin-top:32px;">
 <div class="trainer" style="display:flex;flex-direction:column;align-items:center;gap:0;position:static;padding-bottom:0;">
@@ -196,8 +270,7 @@ fbq('track', 'PageView');
 </section>
 <section class="section light">
 <div class="container">
-<div class="h2 center">Key Takeaways</div>
-<p class="center" style="max-width:860px;margin:8px auto 24px;">In this power-packed 30-minute call, you'll walk away with game-changing insights tailored to your IT startup or MSME:</p>
+<div class="h2 center">In this power-packed 30-minute call, you'll walk away with game-changing insights tailored to your IT startup or MSME:</div>
 <div class="grid-3">
 <div class="card">
 <div class="title">Custom Action Plan for Your Top Tech Hurdle</div>
@@ -299,7 +372,10 @@ fbq('track', 'PageView');
 </section>
 <div class="bottom-floating">
 <div class="wrap">
-<div class="msg">Free Slots are Almost Gone–Book yours NOW</div>
+<div class="msg">
+  <div class="bb-line1">Only 3 Seats Left.</div>
+  <div class="bb-line2">Register within <span id="bb-min">15</span> mins <span id="bb-sec">00</span> secs</div>
+</div>
 <a class="cta" data-cta="lp_book_1_on_1_call_for_free_10" data-cta_index="10" data-cta_position="bottom" href="https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7">Book Your FREE Clarity Call NOW!!</a>
 </div>
 </div>
@@ -362,4 +438,55 @@ fbq('track', 'PageView');
   });
 })();
 </script>
+
+<script>
+/* Bottom bar countdown (v88): always start from 15:00 on page load */
+(function () {
+  var total = 15 * 60; // seconds
+  var minEl = document.getElementById('bb-min');
+  var secEl = document.getElementById('bb-sec');
+  if (!minEl || !secEl) return;
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  function tick() {
+    var m = Math.floor(total / 60);
+    var s = total % 60;
+    minEl.textContent = String(m);
+    secEl.textContent = pad(s);
+    if (total > 0) total -= 1;
+  }
+
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+
+
+<script>
+/* Bottom bar click-through (v90): click anywhere on the bar to open the same link as the CTA */
+(function () {
+  var bar = document.querySelector('.bottom-floating');
+  if (!bar) return;
+  var cta = bar.querySelector('a.cta');
+  if (!cta || !cta.href) return;
+
+  bar.setAttribute('role', 'link');
+  bar.setAttribute('tabindex', '0');
+
+  function go() { window.location.href = cta.href; }
+
+  bar.addEventListener('click', function (e) {
+    if (e.target && e.target.closest && e.target.closest('a')) return; // let CTA behave normally
+    go();
+  });
+
+  bar.addEventListener('keydown', function (e) {
+    var k = e.key || e.code;
+    if (k === 'Enter' || k === ' ' || k === 'Spacebar') { e.preventDefault(); go(); }
+  });
+})();
+</script>
+
+
 </body></html>
