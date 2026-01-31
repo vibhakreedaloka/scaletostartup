@@ -221,7 +221,6 @@ fbq('track', 'PageView');
       0 16px 34px rgba(0,0,0,0.26) !important;
   }
 </style>
-
 <!-- Bottom bar urgency (v88) -->
 <style id="bottom-bar-urgency">
   /* Force bottom bar to red, regardless of home light override */
@@ -238,16 +237,15 @@ fbq('track', 'PageView');
     .bottom-floating .bb-line2 { font-size: 11px; }
   }
 </style>
-
 </head><body class="home" data-page="landing"><div class="header"><div class="wrap"><a href="index.html"><img alt="Scale Startup" class="logo" src="assets/S Horizontal Logo with BG Shrinked.png"/></a><a class="cta" data-cta="lp_book_1_on_1_call_for_free_01" data-cta_index="1" data-cta_position="top" href="https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7">Book Your FREE Clarity Call NOW!!</a></div></div>
 <section class="section dark hero" style="padding:72px 20px 8px 20px;">
 <div class="session-info container">
-<div class="hook">Founders’ Tech Clarity Call</div>
-<div class="sub" style="font-size: 90% !important;">Get your personalized, step-by-step action plan for your biggest startup tech hurdles—free, in just 30 minutes. Experience clarity, growth, and work-life balance.</div>
+<div class="hook" id="copy-t1">Founders’ Tech Clarity Call</div>
+<div class="sub" id="copy-t2" style="font-size: 90% !important;">Get your personalized, step-by-step action plan for your biggest startup tech hurdles—free, in just 30 minutes. Experience clarity, growth, and work-life balance.</div>
 <div class="ring" style="padding-bottom:40px;">
 <div class="why">
-        <strong>Walk away with a 30–90 day action plan to ship faster, reduce fires, and cut cloud waste.</strong>
-	        <span class="last" style="color:#F8FAFC !important; font-weight:400 !important; text-shadow:none !important; font-size:25px !important;">Before your competitors ship the next release.</span>
+<strong id="copy-t3">Walk away with a 30–90 day action plan to ship faster, reduce fires, and cut cloud waste.</strong>
+<span class="last" id="copy-t4" style="color:#F8FAFC !important; font-weight:400 !important; text-shadow:none !important; font-size:25px !important;">Before your competitors ship the next release.</span>
 </div>
 <div class="attached-btn" style="margin-top:32px;"><a class="cta glow big" data-cta="lp_book_my_free_founders_tech_clarity_call_02" data-cta_index="2" data-cta_position="hero" href="https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7">Book Your FREE Clarity Call NOW!!</a></div>
 <div class="microcopy" style="text-align:center;margin-top:10px;color:#E5E7EB;font-size:14px;opacity:0.9;">Takes 2 minutes → pick a slot → fill form.</div>
@@ -373,8 +371,8 @@ fbq('track', 'PageView');
 <div class="bottom-floating">
 <div class="wrap">
 <div class="msg">
-  <div class="bb-line1">Only 3 Seats Left.</div>
-  <div class="bb-line2">Register within <span id="bb-min">15</span> mins <span id="bb-sec">00</span> secs</div>
+<div class="bb-line1">Only 3 Slots Left.</div>
+<div class="bb-line2">Register within <span id="bb-min">15</span> mins <span id="bb-sec">00</span> secs</div>
 </div>
 <a class="cta" data-cta="lp_book_1_on_1_call_for_free_10" data-cta_index="10" data-cta_position="bottom" href="https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7">Book Your FREE Clarity Call NOW!!</a>
 </div>
@@ -438,7 +436,6 @@ fbq('track', 'PageView');
   });
 })();
 </script>
-
 <script>
 /* Bottom bar countdown (v88): always start from 15:00 on page load */
 (function () {
@@ -461,8 +458,6 @@ fbq('track', 'PageView');
   setInterval(tick, 1000);
 })();
 </script>
-
-
 <script>
 /* Bottom bar click-through (v90): click anywhere on the bar to open the same link as the CTA */
 (function () {
@@ -487,9 +482,6 @@ fbq('track', 'PageView');
   });
 })();
 </script>
-
-
-
 <script>
 (function(){
   function ready(fn){ if(document.readyState !== 'loading'){ fn(); } else { document.addEventListener('DOMContentLoaded', fn); } }
@@ -522,4 +514,96 @@ fbq('track', 'PageView');
 })();
 </script>
 
+<script>
+/* Dynamic copy swap based on URL param: ?utm_campaign=...  */
+/* Add new variants by pushing objects into CAMPAIGN_VARIANTS. */
+(function () {
+  try {
+    var params = new URLSearchParams(window.location.search || "");
+    // Primary (recommended): utm_campaign. Kept legacy support for ?campaign=... just in case.
+    var utmCampaign = params.get("utm_campaign") || params.get("campaign");
+
+    var el1 = document.getElementById("copy-t1");
+    var el2 = document.getElementById("copy-t2");
+    var el3 = document.getElementById("copy-t3");
+    var el4 = document.getElementById("copy-t4");
+
+    if (!el1 || !el2 || !el3 || !el4) return;
+
+    var defaults = {
+      t1: (el1.textContent || "").trim(),
+      t2: (el2.textContent || "").trim(),
+      t3: (el3.textContent || "").trim(),
+      t4: (el4.textContent || "").trim()
+    };
+
+    var CAMPAIGN_VARIANTS = [
+      {
+        key: "cloud_cost",
+        copy: {
+          t1: "Cloud Cost Clarity Call - Get Bills Under Control",
+          t2: "Get a breakdown of exactly where you're burning cash—and a personalized blueprint—free, in just 30 minutes.",
+          t3: "Walk away with a 30-day plan to spot cost drivers, cut waste (often ~20–50%), and set guardrails to prevent spikes.",
+          t4: "Before Your Next Bill Cycle"
+        }
+      }
+    ];
+
+    function applyCopy(copy) {
+      el1.textContent = copy.t1 || defaults.t1;
+      el2.textContent = copy.t2 || defaults.t2;
+      el3.textContent = copy.t3 || defaults.t3;
+      el4.textContent = copy.t4 || defaults.t4;
+    }
+
+    var match = null;
+    if (utmCampaign) {
+      for (var i = 0; i < CAMPAIGN_VARIANTS.length; i++) {
+        if (CAMPAIGN_VARIANTS[i].key === utmCampaign) { match = CAMPAIGN_VARIANTS[i]; break; }
+      }
+    }
+
+    if (match && match.copy) {
+      applyCopy(match.copy);
+    }
+    // else: fallback to default (do nothing)
+
+    // --- GA4 tracking: capture utm_campaign (no PII) ---
+    function cleanKey(v) {
+      try {
+        return String(v || '')
+          .trim()
+          .toLowerCase()
+          .replace(/[^a-z0-9_-]/g, '')
+          .slice(0, 64) || 'default';
+      } catch (e) {
+        return 'default';
+      }
+    }
+
+    var ssUtmCampaign = utmCampaign ? cleanKey(utmCampaign) : 'default';
+    var ssMatched = match ? 1 : 0;
+
+    // store for possible later attribution (form / thank-you)
+    try {
+      sessionStorage.setItem('ss_utm_campaign', ssUtmCampaign);
+      sessionStorage.setItem('ss_campaign_matched', String(ssMatched));
+    } catch (err) {}
+
+    // fire once per page load
+    try {
+      if (!window.__ss_lp_view_sent && typeof window.gtag === 'function') {
+        window.__ss_lp_view_sent = true;
+        window.gtag('event', 'lp_view', {
+          ss_utm_campaign: ssUtmCampaign,
+          ss_campaign_matched: ssMatched,
+          page_name: 'landing',
+          page_path: location.pathname
+        });
+      }
+    } catch (err) {}
+  } catch (e) {
+    // Fail safe: keep default copy
+  }
+})();</script>
 </body></html>
