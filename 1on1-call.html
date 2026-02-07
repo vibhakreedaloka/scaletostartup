@@ -539,6 +539,15 @@ fbq('track', 'PageView');
 
     var CAMPAIGN_VARIANTS = [
       {
+        key: "slow_dev",
+        copy: {
+          t1: "Tech Delivery Speed-Up Strategy Session",
+          t2: "In one focused 30-minute call, we'll identify exactly what's slowing down your team and create a clear action plan to accelerate your development cycles starting this week.",
+          t3: "You’ll leave with: your #1 bottleneck + a 30‑day delivery roadmap + next steps for predictable weekly progress.",
+          t4: "Book Now-before you face another delayed release."
+        }
+      },
+      {
         key: "cloud_cost",
         copy: {
           t1: "Cloud Cost Clarity Call - Get Bills Under Control",
@@ -550,10 +559,22 @@ fbq('track', 'PageView');
     ];
 
     function applyCopy(copy) {
-      el1.textContent = copy.t1 || defaults.t1;
-      el2.textContent = copy.t2 || defaults.t2;
-      el3.textContent = copy.t3 || defaults.t3;
-      el4.textContent = copy.t4 || defaults.t4;
+      var t1 = (copy && copy.t1) ? copy.t1 : defaults.t1;
+      var t2 = (copy && copy.t2) ? copy.t2 : defaults.t2;
+      var t3 = (copy && copy.t3) ? copy.t3 : defaults.t3;
+      var t4 = (copy && copy.t4) ? copy.t4 : defaults.t4;
+
+      el1.textContent = t1;
+      el2.textContent = t2;
+      el3.textContent = t3;
+      el4.textContent = t4;
+
+      // Keep the browser tab + OG title in sync (helps ads preview + sharing)
+      try {
+        document.title = t1 + " | FREE 30-Minute 1-on-1 Call with Santhosh — Scale Startup";
+        var ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', t1);
+      } catch (e) {}
     }
 
     var match = null;
@@ -566,7 +587,44 @@ fbq('track', 'PageView');
     if (match && match.copy) {
       applyCopy(match.copy);
     }
-    // else: fallback to default (do nothing)
+    
+    // --- Keep UTM params attached to booking links (so attribution survives redirects) ---
+    (function propagateUtmToCtas() {
+      try {
+        var keepKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'];
+        var out = new URLSearchParams();
+        keepKeys.forEach(function(k){
+          var v = params.get(k);
+          if (v) out.set(k, v);
+        });
+        // URLSearchParams iteration support for older browsers
+        var hasAny = false;
+        out.forEach(function(){ hasAny = true; });
+        if (!hasAny) return;
+
+        var links = document.querySelectorAll('a[href]');
+        links.forEach(function(a){
+          var href = a.getAttribute('href') || '';
+          if (!href) return;
+          // Only touch our booking / form CTAs (avoid changing random links)
+          var isBooking = href.indexOf('tech.scalestartup.in/web/lite/events/') !== -1;
+          var isForm = href.indexOf('founders_tech_clarity_form.html') !== -1;
+          if (!isBooking && !isForm) return;
+
+          try {
+            var u = new URL(href, window.location.origin);
+            keepKeys.forEach(function(k){
+              var val = out.get(k);
+              if (val && !u.searchParams.get(k)) u.searchParams.set(k, val);
+            });
+            a.setAttribute('href', u.toString());
+          } catch (e) {
+            // ignore bad URLs
+          }
+        });
+      } catch (e) {}
+    })();
+// else: fallback to default (do nothing)
 
     // --- GA4 tracking: capture utm_campaign (no PII) ---
     function cleanKey(v) {
