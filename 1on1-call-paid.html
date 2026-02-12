@@ -76,7 +76,7 @@
     font-size: 112% !important;
   }
 
-  /* 5. CTA: "Book Your FREE Audit Call NOW!!" wider & single line */
+  /* 5. CTA: "Book Audit Call for Just ₹199 (Refundable<sup>*</sup>)" wider & single line */
   .attached-btn .cta.glow.big {
     display: inline-block;
     min-width: 80vw;
@@ -91,6 +91,20 @@
     font-size: 64% !important;
   }
 }</style>
+
+<!-- Desktop-only CTA width fix (keep the main hero button text in one line) -->
+<style>
+@media (min-width: 992px) {
+  .attached-btn .cta.glow.big {
+    min-width: 720px;
+    max-width: 920px;
+    padding: 18px 42px;
+  }
+  .attached-btn .cta.glow.big .cta-label {
+    white-space: nowrap;
+  }
+}
+</style>
 <meta content="ScaleStartup" property="og:title"/>
 <meta content="Scale Your Tech Business - 2x Faster Releases, Cut Cloud Costs by 20-30%, Reduce Rework by 90% and Win Back Your Life Beyond Office." property="og:description"/>
 <meta content="https://scalestartup.in/preview.png" property="og:image"/>
@@ -125,7 +139,7 @@ fbq('track', 'PageView');
   // Lightweight ping so you can instantly verify in GA4 Realtime
   // (No PII; safe to keep in production)
   try {
-    gtag('event', 'ss_ga4_ping', { page_name: 'landing', page_path: location.pathname });
+    gtag('event', 'ss_ga4_ping', { page_name: 'landing_paid', page_path: location.pathname });
   } catch (e) {}
 </script>
 <script defer="" src="assets/ga4-events.js"></script>
@@ -185,7 +199,10 @@ fbq('track', 'PageView');
     pointer-events: none;
   }
 
-  /* Ensure text sits above highlight */
+    /* Prevent flex gap from separating <sup>*</sup> */
+  .cta-label{display:inline;}
+
+/* Ensure text sits above highlight */
   a.cta > *, button.cta > *, .cta-button > *, .cta-btn > *,
   a[class*="cta"] > *, button[class*="cta"] > * {
     position: relative;
@@ -238,25 +255,27 @@ fbq('track', 'PageView');
   .bottom-floating .msg { background: #DC2626 !important; color: #F8FAFC !important; display: inline-flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 12px; }
   .bottom-floating .msg, .bottom-floating .msg * { color: #F8FAFC !important; }
   .bottom-floating .bb-line1 { font-weight: 800; font-size: 23px; line-height: 1.1; }
-  .bottom-floating .bb-line2 { font-weight: 600; font-size: 19px; line-height: 1.2; opacity: 0.95; }
+  .bottom-floating .old-price { text-decoration: line-through; color: #D9D9D9; font-size: calc(1em - 3px); margin-right: 6px; font-weight: 700; }
+.bottom-floating .new-price { font-weight: 900; }
+.bottom-floating .bb-line2 { font-weight: 600; font-size: 19px; line-height: 1.2; opacity: 0.95; }
   @media (max-width: 768px) {
     .bottom-floating .msg { padding: 9px 10px; border-radius: 11px; }
     .bottom-floating .bb-line1 { font-size: 14px; }
     .bottom-floating .bb-line2 { font-size: 11px; }
   }
 </style>
-</head><body class="home" data-page="landing"><div class="header"><div class="wrap"><a href="index.html"><img alt="Scale Startup" class="logo" src="assets/S Horizontal Logo with BG Shrinked.png"/></a><a class="cta" data-cta="lp_book_1_on_1_call_for_free_01" data-cta_index="1" data-cta_position="top" href="https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7">Book Your FREE Audit Call NOW!!</a></div></div>
+</head><body class="home" data-page="landing"><div class="header"><div class="wrap"><a href="index.html"><img alt="Scale Startup" class="logo" src="assets/S Horizontal Logo with BG Shrinked.png"/></a><a class="cta" data-cta="lp_book_1_on_1_call_for_free_01" data-cta_index="1" data-cta_position="top" href="https://tech.scalestartup.in/web/lite/events/698dab92a8ad159fb10789d2"><span class="cta-label">Book Audit Call for Just ₹199 (Refundable<sup>*</sup>)</span></a></div></div>
 <section class="section dark hero" style="padding:72px 20px 8px 20px;">
 <div class="session-info container">
 <div class="hook" id="copy-t1">Founders’ Tech Audit Call</div>
-<div class="sub" id="copy-t2" style="font-size: 90% !important;">Get your personalized, step-by-step action plan for your biggest startup tech hurdles—free, in just 30 minutes. Experience clarity, growth, and work-life balance.</div>
+<div class="sub" id="copy-t2" style="font-size: 90% !important;">Get your personalized, step-by-step action plan for your biggest startup tech hurdles—in just 30 minutes. Experience clarity, growth, and work-life balance.</div>
 <div class="ring" style="padding-bottom:40px;">
 <div class="why">
 <strong id="copy-t3">Walk away with a 30–90 day action plan to ship faster, reduce fires, and cut cloud waste.</strong>
 <span class="last" id="copy-t4" style="color:#F8FAFC !important; font-weight:400 !important; text-shadow:none !important; font-size:25px !important;">Before your competitors ship the next release.</span>
 </div>
-<div class="attached-btn" style="margin-top:32px;"><a class="cta glow big" data-cta="lp_book_my_free_founders_tech_clarity_call_02" data-cta_index="2" data-cta_position="hero" href="https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7">Book Your FREE Audit Call NOW!!</a></div>
-<div class="microcopy" style="text-align:center;margin-top:10px;color:#E5E7EB;font-size:14px;opacity:0.9;">Takes 2 minutes → pick a slot → fill form.</div>
+<div class="attached-btn" style="margin-top:32px;"><a class="cta glow big" data-cta="lp_book_my_free_founders_tech_clarity_call_02" data-cta_index="2" data-cta_position="hero" href="https://tech.scalestartup.in/web/lite/events/698dab92a8ad159fb10789d2"><span class="cta-label">Book Audit Call for Just ₹199 (Refundable<sup>*</sup>)</span></a></div>
+<div class="microcopy" style="text-align:center;margin-top:10px;color:#E5E7EB;font-size:14px;opacity:0.9;">Takes 2 minutes → Pick a Slot → Pay ₹199 → Fill Form</div>
 </div>
 <div class="center" style="margin-top:32px;">
 <div class="trainer" style="display:flex;flex-direction:column;align-items:center;gap:0;position:static;padding-bottom:0;">
@@ -268,7 +287,7 @@ fbq('track', 'PageView');
 </div>
 </div>
 <div style="margin-top:20px;">
-<a class="cta glow big" data-cta="lp_claim_my_free_30_min_clarity_call_now_03" data-cta_index="3" data-cta_position="hero" href="https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7">Book Your FREE Audit Call NOW!!</a>
+<a class="cta glow big" data-cta="lp_claim_my_free_30_min_clarity_call_now_03" data-cta_index="3" data-cta_position="hero" href="https://tech.scalestartup.in/web/lite/events/698dab92a8ad159fb10789d2"><span class="cta-label">Book Audit Call for Just ₹199 (Refundable<sup>*</sup>)</span></a>
 </div>
 </div>
 </div>
@@ -291,7 +310,7 @@ fbq('track', 'PageView');
 <p>Learn proven fixes for cloud overspend and weak monitoring, empowering you to lead with more focus, less stress, and the confidence to hit your startup goals.</p>
 </div>
 </div>
-<div class="center" style="margin-top:18px;"><a class="cta glow big" data-cta="lp_yes_i_want_my_free_action_plan_now_04" data-cta_index="4" data-cta_position="light-section" href="https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7">Book Your FREE Audit Call NOW!!</a></div>
+<div class="center" style="margin-top:18px;"><a class="cta glow big" data-cta="lp_yes_i_want_my_free_action_plan_now_04" data-cta_index="4" data-cta_position="light-section" href="https://tech.scalestartup.in/web/lite/events/698dab92a8ad159fb10789d2"><span class="cta-label">Book Audit Call for Just ₹199 (Refundable<sup>*</sup>)</span></a></div>
 </div>
 </section>
 <section class="section dark">
@@ -305,7 +324,7 @@ fbq('track', 'PageView');
 <div>❌ A CTO who sees a rising cloud bill as just an unavoidable “cost of doing business”.</div>
 <div>❌ A developer who only wants to code, without taking ownership of the business impact, security, and stability of their work.</div>
 </div>
-<div style="margin-top:18px;"><a class="cta glow big" data-cta="lp_this_isn_t_me_i_m_ready_to_take_action_b_05" data-cta_index="5" data-cta_position="dark-section" href="https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7">This isn’t me – Book My FREE Audit Call NOW!!</a></div>
+<div style="margin-top:18px;"><a class="cta glow big" data-cta="lp_this_isn_t_me_i_m_ready_to_take_action_b_05" data-cta_index="5" data-cta_position="dark-section" href="https://tech.scalestartup.in/web/lite/events/698dab92a8ad159fb10789d2"><span class="cta-label">This isn’t me – Book My Audit Call for ₹199 (Refundable<sup>*</sup>)</span></a></div>
 </div>
 </section>
 <section class="section light who-for">
@@ -319,7 +338,7 @@ fbq('track', 'PageView');
 <div class="good">✅ Forward-Thinking Leaders who are ready to install a calm, reliable, and scalable “tech engine” at the core of their company.</div>
 <div class="good">✅ Founders in India who want to build a world-class product without burning through their funding–or themselves.</div>
 </div>
-<div style="margin-top:18px;"><a class="cta glow big" data-cta="lp_that_s_me_book_my_free_founders_clarity_06" data-cta_index="6" data-cta_position="who-for" href="https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7">That's Me! Book My FREE Audit Call NOW!!</a></div>
+<div style="margin-top:18px;"><a class="cta glow big" data-cta="lp_that_s_me_book_my_free_founders_clarity_06" data-cta_index="6" data-cta_position="who-for" href="https://tech.scalestartup.in/web/lite/events/698dab92a8ad159fb10789d2"><span class="cta-label">That's Me! Book My Audit Call for ₹199 (Refundable<sup>*</sup>)</span></a></div>
 </div>
 </section>
 <section class="section dark">
@@ -341,7 +360,7 @@ fbq('track', 'PageView');
 <p>The research shows that only 5% of startups become successful. Hence, I made my mission to help 1000 Indian IT startups build clean, scalable tech engines that actually support growth.</p>
 <p>I’ve lived the Founder’s Nightmare so you don’t have to. Now I’m here as Your Scaling CoFounder—to sit on your side of the table and help you scale with clarity, not chaos.</p>
 <div class="clear-v2"></div>
-<div class="cta glow-wrap-v2"><a class="cta glow big" data-cta="lp_i_want_to_learn_from_you_save_my_free_se_07" data-cta_index="7" data-cta_position="dark-section" href="https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7">I want to learn from YOU—Save My FREE Seat</a></div>
+<div class="cta glow-wrap-v2"><a class="cta glow big" data-cta="lp_i_want_to_learn_from_you_save_my_free_se_07" data-cta_index="7" data-cta_position="dark-section" href="https://tech.scalestartup.in/web/lite/events/698dab92a8ad159fb10789d2">I Want to Learn from YOU -- Save My Seat for ₹199</a></div>
 </div>
 </div>
 </section>
@@ -352,24 +371,28 @@ fbq('track', 'PageView');
 <details><summary>I'm extremely busy. Can we really solve anything in just 30 minutes?</summary><p>Absolutely. We won't solve every problem, but we will solve your most pressing one. This call is designed for busy founders—it's a high-impact, surgical strike on your biggest bottleneck to give you immediate momentum.</p></details>
 <details><summary>Will this be relevant for my specific industry and tech stack?</summary><p>Yes. The principles of scaling, security, and process management are universal. My experience spans multiple domains, and the focus is on the business and operational framework around your tech, not just the code itself.</p></details>
 <details><summary>Is this call confidential?</summary><p>100%. As a founder myself, I understand the importance of confidentiality. Everything we discuss stays between us.</p></details>
+<details><summary>Why is this Audit not for Free?</summary><p>Free calls get abused and founders don’t show up. ₹199 is a slot deposit to keep the calendar serious and respectful. This will be refunable if You just attend the call.</p></details>
+<details><summary>Is ₹199 refundable?</summary><p>Yes. Attend the call and you get a full refund. If you reschedule in advance, refund stays valid. It is Not Refundable if you don't attend the call.</p></details>
 <details><summary>What do I need to prepare for the call?</summary><p>Just one thing: come with a clear idea of your single biggest challenge or the one thing that keeps you up at night. The clearer your problem, the more actionable my solution will be.</p></details>
 <details><summary>I'm very early-stage/pre-revenue. Is this for me?</summary><p>Yes! Getting these foundations right before you scale is the smartest thing you can do. This call can save you from making critical mistakes that can cripple a startup later.</p></details>
-<details><summary>What happens after the call?</summary><p>You will have a clear, actionable plan to implement immediately. If you're interested in more support, I can share some information on my programs. If not, you walk away with a valuable strategy, completely free.</p></details>
+<details><summary>What happens after the call?</summary><p>You will have a clear, actionable plan to implement immediately. If you're interested in more support, I can share some information on my programs. If not, you walk away with a valuable strategy and your ₹199 is refunded after you attend.</p></details>
 <details><summary>Why are you doing this?</summary><p>My mission is to increase the success rate of Indian startups. By helping founders like you get clarity, I'm one step closer to my goal of helping 1000 startups scale successfully.</p></details>
 <details><summary>Should I bring my co-founder or tech lead?</summary><p>Absolutely. In fact, I recommend it. Having both perspectives (founder business + technical lead) often surfaces the real blockers faster.</p></details>
 <details><summary>How is this different from just reading blogs or watching YouTube on startup scaling?</summary><p>Blogs are generic. Your problem is specific. YouTube teaches concepts. This call diagnoses your blocker in real-time based on your situation. Plus, you get a personalized action plan—not a one-size-fits-all framework. That's the difference.</p></details>
 <details><summary>What if my tech stack is too messy to fix in 30 minutes?</summary><p>We're not fixing your entire stack in 30 minutes. We're identifying which problem to fix first. That clarity alone saves you 3 months of spinning your wheels. The action plan gives you the roadmap.</p></details>
 </div>
-<div class="center" style="margin-top:18px;"><a class="cta glow big" data-cta="lp_i_still_have_questions_but_i_will_ask_th_08" data-cta_index="8" data-cta_position="faqs" href="https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7">I still have questions, but I will ask them live. Book my FREE spot NOW</a></div>
+<div class="center" style="margin-top:18px;"><a class="cta glow big" data-cta="lp_i_still_have_questions_but_i_will_ask_th_08" data-cta_index="8" data-cta_position="faqs" href="https://tech.scalestartup.in/web/lite/events/698dab92a8ad159fb10789d2">I still have questions, but I will ask them Live. Book My Seat for ₹199</a></div>
 </div>
 </section>
 <section class="section dark">
 <div class="container center">
 <div class="h2" style="margin-bottom:10px;">You Can Scale OR You Can Burnout. The Choice is Yours.</div>
-<a class="cta glow big" data-cta="lp_i_want_to_scale_book_my_free_30_minute_1_09" data-cta_index="9" data-cta_position="dark-section" href="https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7">I want to Scale. Book My FREE Audit Call NOW!!</a>
+<a class="cta glow big" data-cta="lp_i_want_to_scale_book_my_free_30_minute_1_09" data-cta_index="9" data-cta_position="dark-section" href="https://tech.scalestartup.in/web/lite/events/698dab92a8ad159fb10789d2">I want to Scale. Book My Audit Call for ₹199</a>
 <div class="footer" style="margin-top:26px;">
 <img alt="Scale Startup Logo" src="assets/S Horizontal Logo with BG Shrinked.png"/>
 <div style="margin-top:10px;"><a href="privacy-policy.html" style="color:#93c5fd;">Privacy Policy</a> • <a href="refund-policy.html" style="color:#93c5fd;">Refund Policy</a> • <a href="terms.html" style="color:#93c5fd;">Terms &amp; Conditions</a></div>
+<div class="refund-note" style="text-align:center;margin-top:10px;font-size:17px;opacity:1;color:#FFFFFF;"><sup>*</sup>₹199 is Refunable only if You attend the call. It is not refundable if you don't attend the call.</div>
+
 <div class="copyright" style="text-align:center;padding:12px 0;font-size:12px;opacity:.8;">
   Copyright © 2025 KreedaLoka Private Limited | All Rights Reserved.
 </div>
@@ -379,10 +402,10 @@ fbq('track', 'PageView');
 <div class="bottom-floating">
 <div class="wrap">
 <div class="msg">
-<div class="bb-line1">Only 3 Slots Left.</div>
-<div class="bb-line2">Register within <span id="bb-min">15</span> mins <span id="bb-sec">00</span> secs</div>
+<div class="bb-line1"><span class="old-price">₹2,000</span> <span class="new-price">₹199</span></div>
+<div class="bb-line2">Offer Ends in <span id="bb-min">15</span> mins <span id="bb-sec">00</span> secs</div>
 </div>
-<a class="cta" data-cta="lp_book_1_on_1_call_for_free_10" data-cta_index="10" data-cta_position="bottom" href="https://tech.scalestartup.in/web/lite/events/692fa0b130ae78be301a0ec7">Book Your FREE Audit Call NOW!!</a>
+<a class="cta" data-cta="lp_book_1_on_1_call_for_free_10" data-cta_index="10" data-cta_position="bottom" href="https://tech.scalestartup.in/web/lite/events/698dab92a8ad159fb10789d2"><span class="cta-label">Book Audit Call for Just ₹199 (Refundable<sup>*</sup>)</span></a>
 </div>
 </div>
 <script>
@@ -508,10 +531,10 @@ fbq('track', 'PageView');
     function apply(){
       var isMobile = mq.matches;
       if(headerCta){
-        headerCta.textContent = isMobile ? 'Book for FREE' : headerCta.dataset.desktopText;
+        headerCta.textContent = isMobile ? 'Book for ₹199' : headerCta.dataset.desktopText;
       }
       if(bottomCta){
-        bottomCta.textContent = isMobile ? 'Book for FREE' : bottomCta.dataset.desktopText;
+        bottomCta.textContent = isMobile ? 'Book for ₹199' : bottomCta.dataset.desktopText;
       }
     }
 
@@ -559,7 +582,7 @@ fbq('track', 'PageView');
         key: "cloud_cost",
         copy: {
           t1: "Cloud Cost Audit Call - Get Bills Under Control",
-          t2: "Get a breakdown of exactly where you're burning cash—and a personalized blueprint—free, in just 30 minutes.",
+          t2: "Get a breakdown of exactly where you're burning cash—and a personalized blueprint—in just 30 minutes.",
           t3: "Walk away with a 30-day plan to spot cost drivers, cut waste (often ~20–50%), and set guardrails to prevent spikes.",
           t4: "Before Your Next Bill Cycle"
         }
